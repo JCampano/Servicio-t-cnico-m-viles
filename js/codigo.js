@@ -1,9 +1,9 @@
-/*class SAT {
+class SAT {
     constructor() {
 
     }
 }
-*/
+
 function Proveedor(sTipo, sNombre, sCIF) {
     this.sTipo = sTipo;
     this.sNombre = sNombre
@@ -14,8 +14,7 @@ Proveedor.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sTipo + "</td><td>" + this.sNombre + "</td><td>" + this.sCIF + "</td></tr>";
 }
 
-function Pieza_Repuesto (sTipo, fPrecio, sId)
-{
+function Pieza_Repuesto(sTipo, fPrecio, sId) {
     this.sTipo = sTipo;
     this.fPrecio = fPrecio;
     this.sId = sId;
@@ -25,8 +24,7 @@ Pieza_Repuesto.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sTipo + "</td><td>" + this.fPrecio + "</td><td>" + this.sId + "</td></tr>";
 }
 
-function Reparacion (sAveria, sEstado, fImportePresupuestado, sComentarios)
-{
+function Reparacion(sAveria, sEstado, fImportePresupuestado, sComentarios) {
     this.sAveria = sAveria;
     this.sEstado = sEstado;
     this.fImportePresupuestado = fImportePresupuestado;
@@ -49,8 +47,7 @@ Persona.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
 }
 
-function Personal (sIBAN, bEncargado)
-{
+function Personal(sIBAN, bEncargado) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
     this.sIBAN = sIBAN;
     this.bEncargado = bEncargado;
@@ -63,8 +60,7 @@ Personal.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td><td>" + this.sIBAN + "</td><td>" + this.bEncargado + "</td></tr>";
 }
 
-function Cliente ()
-{
+function Cliente() {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
 }
 
@@ -86,8 +82,7 @@ Apunte.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
 }
 
-function Pago ()
-{
+function Pago() {
     Apunte.call(this, fImporte, fVencimiento, bEstado, sAsunto);
 }
 
@@ -98,8 +93,7 @@ Pago.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
 }
 
-function Cobro ()
-{
+function Cobro() {
     Cobro.call(this, fImporte, fVencimiento, bEstado, sAsunto);
 }
 
@@ -121,6 +115,3 @@ function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
 Dispositivo.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrega + "</td><td>" + this.fSalida + "</td></tr>";
 }
-/*
-}
-*/
