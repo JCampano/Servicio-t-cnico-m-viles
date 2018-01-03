@@ -1,9 +1,9 @@
-class SAT {
+/*class SAT {
     constructor() {
 
     }
 }
-
+*/
 function Proveedor(sTipo, sNombre, sCIF) {
     this.sTipo = sTipo;
     this.sNombre = sNombre
@@ -121,4 +121,6 @@ function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
 Dispositivo.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrega + "</td><td>" + this.fSalida + "</td></tr>";
 }
+/*
 }
+*/
