@@ -8,41 +8,64 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>   
 </head>
+
 
 <body>
 
     <nav class="navbar navbar-expand-md bg-success navbar-dark fixed-top">
         <a class="navbar-brand" href="index.html"><img src="img/icon.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+		<span class="navbar-toggler-icon"></span>
+		</button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+			
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Reparaciones
-      </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Clientes</a>
+					
                     <div class="dropdown-menu">
                         <a class="dropdown-item" id="navAltaCliente" href="#">Alta cliente</a>
-                        <a class="dropdown-item" id="navAltaDispositivo" href="#">Alta dispositivo</a>
-                        <a class="dropdown-item" id="navReparacion" href="#">Nueva reparacion</a>
+                        <a class="dropdown-item" id="navBajaCliente" href="#">Baja Cliente</a>
+                        <a class="dropdown-item" id="navModificarCliente" href="#">Modificar Cliente</a>
                     </div>
                 </li>
+				
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Personal
-      </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Dispositivos</a>
+					
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" id="navAltaEmpleado" href="#">Alta</a>
+                        <a class="dropdown-item" id="navAltaDispositivo" href="#">Alta Dispositivo</a>
+                        <a class="dropdown-item" id="navBajaDispositivo" href="#">Baja Dispositivo</a>
+                        <a class="dropdown-item" id="navModificarDispositivo" href="#">Modificar Dispositivo</a>
+                    </div>
+                </li>
+				
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Reparaciones</a>
+					
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="navAltaReparación" href="#">Nueva Reparación</a>
+                        <a class="dropdown-item" id="navModificarReparación" href="#">Modificar Reparación</a>
+                        <a class="dropdown-item" id="navEliminarReparacion" href="#">Eliminar Reparación</a>
+                    </div>
+                </li>
+				
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Personal</a>
+					
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="navAltaEmpleado" href="#">Alta Empleado</a>
+						<a class="dropdown-item" id="navModificarEmpleado" href="#">Modificar Empleado</a>
+						<a class="dropdown-item" id="navBajaEmpleado" href="#">Baja Empleado</a>
                         <a class="dropdown-item" href="#">Gestion encargados</a>
                     </div>
                 </li>
+				
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Contabilidad
-      </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Contabilidad</a>
+					
                     <div class="dropdown-menu">
                         <a class="dropdown-item" id="navPago" href="#">Pago</a>
                         <a class="dropdown-item" id="navCobro" href="#">Cobro</a>
@@ -52,7 +75,9 @@
         </div>
     </nav>
 
-    <!-- Formulario cliente -->
+    
+	
+	<!-- Formulario alta cliente -->
     <br><br><br>
     <form class="form-horizontal" name="frmAltacliente" id="frmAltacliente" style="display:none;">
         <fieldset>
@@ -62,17 +87,16 @@
 
             <!-- Text input-->
             <div class="form-group">
-
                 <label class="col-md-4 control-label" for="nifCliente">NIF</label>
                 <div class="col-md-4">
                     <input id="nifCliente" name="nifCliente" placeholder="NIF" class="form-control input-md" required="" type="text">
                 </div>
             </div>
+			
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nombreCliente">Nombre</label>
                 <div class="col-md-4">
                     <input id="nombreCliente" name="nombreCliente" placeholder="Nombre" class="form-control input-md" required="" type="text">
-
                 </div>
             </div>
 
@@ -81,7 +105,6 @@
                 <label class="col-md-4 control-label" for="apellidosCliente">Apellidos</label>
                 <div class="col-md-4">
                     <input id="apellidosCliente" name="apellidosCliente" placeholder="Apellidos" class="form-control input-md" required="" type="text">
-
                 </div>
             </div>
 
@@ -89,7 +112,6 @@
                 <label class="col-md-4 control-label" for="direccionCliente">Direccion</label>
                 <div class="col-md-4">
                     <input id="direccionCliente" name="direccionCliente" placeholder="Direccion" class="form-control input-md" required="" type="text">
-
                 </div>
             </div>
 
@@ -97,7 +119,6 @@
                 <label class="col-md-4 control-label" for="telefonoCliente">Telefono</label>
                 <div class="col-md-4">
                     <input id="telefonoCliente" name="telefonoCliente" placeholder="Telefono" class="form-control input-md" required="" type="text">
-
                 </div>
             </div>
 
@@ -108,14 +129,97 @@
                     <input type="button" id="altaCliente" name="altaCliente" class="btn bg-success btn-primary" value="Aceptar" />
                     <input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
                 </div>
-            </div>
-			
+            </div>			
 
         </fieldset>
     </form>
 
-    <!-- Formulario alta dispositivo -->
+	<!-- Formulario baja cliente -->
+	<form class="form-horizontal" name="frmBajacliente" id="frmBajacliente" style="display:none;">
+        <fieldset>
 
+            <!-- Form Name -->
+            <legend>Eliminar Cliente</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nifCliente">NIF</label>
+                <div class="col-md-4">
+                    <input id="nifCliente" name="nifCliente" placeholder="NIF" class="form-control input-md" required="" type="text">
+                </div>
+            </div>            
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="bajaCliente"></label>
+                <div class="col-md-4">
+                    <input type="button" id="bajaCliente" name="bajaCliente" class="btn bg-success btn-primary" value="Aceptar" />
+                    <input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>	
+
+        </fieldset>
+    </form>
+	
+	<!-- Formulario Modificar cliente -->
+    <form class="form-horizontal" name="frmModificarcliente" id="frmModificarcliente" style="display:none;">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Modificar cliente</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nifCliente">NIF</label>
+                <div class="col-md-4">
+                    <input id="nifCliente" name="nifCliente" placeholder="NIF" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+			
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreCliente">Nombre</label>
+                <div class="col-md-4">
+                    <input id="nombreCliente" name="nombreCliente" placeholder="Nombre" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidosCliente">Apellidos</label>
+                <div class="col-md-4">
+                    <input id="apellidosCliente" name="apellidosCliente" placeholder="Apellidos" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionCliente">Direccion</label>
+                <div class="col-md-4">
+                    <input id="direccionCliente" name="direccionCliente" placeholder="Direccion" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoCliente">Telefono</label>
+                <div class="col-md-4">
+                    <input id="telefonoCliente" name="telefonoCliente" placeholder="Telefono" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="modificarCliente"></label>
+                <div class="col-md-4">
+                    <input type="button" id="modificarCliente" name="modificarCliente" class="btn bg-success btn-primary" value="Aceptar" />
+                    <input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>	
+
+        </fieldset>
+    </form>
+	
+   
+
+   <!-- Formulario alta dispositivo -->
     <form class="form-horizontal" name="frmAltaDispositivo" id="frmAltaDispositivo" style="display:none;">
         <fieldset>
 
@@ -127,62 +231,154 @@
                 <label class="col-md-4 control-label" for="marcaDispositivo">Marca del dispositivo</label>
                 <div class="col-md-4">
                     <input id="marcaDispositivo" name="marcaDispositivo" placeholder="Marca" class="form-control input-md" required="" type="text">
-
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-
                 <label class="col-md-4 control-label" for="modeloDispositivo">Modelo</label>
                 <div class="col-md-4">
                     <input id="modeloDispositivo" name="modeloDispositivo" placeholder="Modelo" class="form-control input-md" required="" type="text">
-
                 </div>
-
-                <!-- Radiobutton garantia -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="rbtGarantia">Garantia</label>
-                    <div class="col-md-4">
-                        <label class="radio-inline" for="rbtGarantia-0">
-      <input name="rbtGarantia" id="rbtGarantia" value="S" type="radio">
-      Si
-    </label>
-                        <label class="radio-inline" for="rbtGarantia-1">
-      <input name="rbtGarantia" id="rbtGarantia" value="N" checked="checked" type="radio">
-      No
-    </label>
-                    </div>
+			</div>
+			
+            <!-- Radiobutton garantia -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="rbtGarantia">Garantia</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="rbtGarantia-0">
+						<input name="rbtGarantia" id="rbtGarantia" value="S" type="radio">
+						Si
+					</label>
+					
+                    <label class="radio-inline" for="rbtGarantia-1">
+						<input name="rbtGarantia" id="rbtGarantia" value="N" checked="checked" type="radio">
+						No
+					</label>
+					
                 </div>
+            </div>
 
-                <div class="form-group">
-
-                    <label class="col-md-4 control-label" for="fechaEntradaDispositivo">Fecha de entrada</label>
-                    <div class="col-md-4">
-                        <input id="fechaEntradaDispositivo" name="fechaEntradaDispositivo" placeholder="Fecha entrada" class="form-control input-md" required="" type="date">
-                    </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaEntradaDispositivo">Fecha de entrada</label>
+                <div class="col-md-4">
+                    <input id="fechaEntradaDispositivo" name="fechaEntradaDispositivo" placeholder="Fecha entrada" class="form-control input-md" required="" type="date">
                 </div>
+            </div>
 
-                <div class="form-group">
-
-                    <label class="col-md-4 control-label" for="fechaSalidaDispositivo">Fecha de salida</label>
-                    <div class="col-md-4">
-                        <input id="fechaSalidaDispositivo" name="fechaSalidaDispositivo" placeholder="Fecha salida" class="form-control input-md" required="" type="date">
-                    </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaSalidaDispositivo">Fecha de salida</label>
+                <div class="col-md-4">
+                    <input id="fechaSalidaDispositivo" name="fechaSalidaDispositivo" placeholder="Fecha salida" class="form-control input-md" required="" type="date">
                 </div>
+            </div>
 
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="altadispositivo"></label>
-                    <div class="col-md-4">
-                        <input type="button" id="altadispositivo" name="altadispositivo" class="btn bg-success btn-primary" value="Aceptar" />
-						<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
-                    </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="altadispositivo"></label>
+                <div class="col-md-4">
+                    <input type="button" id="altaDispositivo" name="altadispositivo" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
                 </div>
+            </div>
+
+        </fieldset>
+    </form>
+	
+	 <!-- Formulario Baja dispositivo -->
+    <form class="form-horizontal" name="frmBajaDispositivo" id="frmBajaDispositivo" style="display:none;">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Baja de Dispositivo</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="marcaDispositivo">Marca del dispositivo</label>
+                <div class="col-md-4">
+                    <input id="marcaDispositivo" name="marcaDispositivo" placeholder="Marca" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+           <!-- Button -->
+           <div class="form-group">
+                <label class="col-md-4 control-label" for="bajaDispositivo"></label>
+                <div class="col-md-4">
+                    <input type="button" id="bajaDispositivo" name="bajaDispositivo" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>
 
         </fieldset>
     </form>
 
+	    <!-- Formulario Modificar dispositivo -->
+    <form class="form-horizontal" name="frmModificarDispositivo" id="frmModificarDispositivo" style="display:none;">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>MOdificar dispositivo</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="marcaDispositivo">Marca del dispositivo</label>
+                <div class="col-md-4">
+                    <input id="marcaDispositivo" name="marcaDispositivo" placeholder="Marca" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="modeloDispositivo">Modelo</label>
+                <div class="col-md-4">
+                    <input id="modeloDispositivo" name="modeloDispositivo" placeholder="Modelo" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+			
+            <!-- Radiobutton garantia -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="rbtGarantia">Garantia</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="rbtGarantia-0">
+						<input name="rbtGarantia" id="rbtGarantia" value="S" type="radio">
+							Si
+					</label>
+					
+                    <label class="radio-inline" for="rbtGarantia-1">
+						<input name="rbtGarantia" id="rbtGarantia" value="N" checked="checked" type="radio">
+							No
+					</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaEntradaDispositivo">Fecha de entrada</label>
+                <div class="col-md-4">
+					<input id="fechaEntradaDispositivo" name="fechaEntradaDispositivo" placeholder="Fecha entrada" class="form-control input-md" required="" type="date">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fechaSalidaDispositivo">Fecha de salida</label>
+                <div class="col-md-4">
+                   <input id="fechaSalidaDispositivo" name="fechaSalidaDispositivo" placeholder="Fecha salida" class="form-control input-md" required="" type="date">
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="modificarDispositivo"></label>
+                <div class="col-md-4">
+                    <input type="button" id="modificarDispositivo" name="modificarDispositivo" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+	
+	
+	
     <!-- Formulario nueva reparacion -->
     <form class="form-horizontal" name="frmAltaReparacion" id="frmAltaReparacion" style="display:none;">
         <fieldset>
@@ -192,11 +388,11 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="repararDispositivo">Dispositivo</label>
                 <select class="form-control col-md-4 input-md" id="repararDispositivo">
-        <option>Aqui</option>
-        <option>Los</option>
-        <option>Moviles</option>
-        <option>Registrados</option>
-      </select>
+					<option>Aqui</option>
+					<option>Los</option>
+					<option>Moviles</option>
+					<option>Registrados</option>
+				</select>
             </div>
 
             <!-- Text input-->
@@ -205,39 +401,128 @@
                 <div class="col-md-4">
                     <input id="averiaReparacion" name="averiaReparacion" placeholder="Averia" class="form-control input-md" required="" type="text">
                 </div>
+			</div>
 
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="estadoReparacion">Estado de la reparacion</label>
-                    <div class="col-md-4">
-                        <input id="estadoReparacion" name="estadoReparacion" placeholder="Estado" class="form-control input-md" required="" type="text">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="importeReparacion">Importe presupuestado</label>
-                        <div class="col-md-4">
-                            <input id="importeReparacion" name="importeReparacion" placeholder="Importe" class="form-control input-md" required="" type="text">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="col-md-4 control-label comment">Comentarios</label>
-                            <textarea class="col-md-4 form-control input-md" id="comentarioReparacion" name="comentarioReparacion" rows="3" required=""></textarea>
-                        </div>
-
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="altaReparacion"></label>
-                            <div class="col-md-4">
-                                <input type="button" id="altaReparacion" name="altaReparacion" class="btn bg-success btn-primary" value="Aceptar" />
-								<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
-                            </div>
-                        </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="estadoReparacion">Estado de la reparacion</label>
+                <div class="col-md-4">
+                    <input id="estadoReparacion" name="estadoReparacion" placeholder="Estado" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+				
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="importeReparacion">Importe presupuestado</label>
+                <div class="col-md-4">
+                    <input id="importeReparacion" name="importeReparacion" placeholder="Importe" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+					
+            <div class="form-group">
+                <label for="col-md-4 control-label comment">Comentarios</label>
+                <textarea class="col-md-4 form-control input-md" id="comentarioReparacion" name="comentarioReparacion" rows="3" required=""></textarea>
+            </div>
+					
+					
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="altaReparacion"></label>
+                <div class="col-md-4">
+					<input type="button" id="altaReparacion" name="altaReparacion" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>
 
         </fieldset>
     </form>
+	
+	<!-- Formulario modificar reparacion -->
+    <form class="form-horizontal" name="frmModificarReparacion" id="frmModificarReparacion" style="display:none;">
+        <fieldset>
 
+            <!-- Form Name -->
+            <legend>Modificar reparación</legend>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="repararDispositivo">Dispositivo</label>
+                <select class="form-control col-md-4 input-md" id="repararDispositivo">
+					<option>Aqui</option>
+					<option>Los</option>
+					<option>Moviles</option>
+					<option>Registrados</option>
+			    </select>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="averiaReparacion">Averia</label>
+                <div class="col-md-4">
+                    <input id="averiaReparacion" name="averiaReparacion" placeholder="Averia" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="estadoReparacion">Estado de la reparacion</label>
+                <div class="col-md-4">
+                   <input id="estadoReparacion" name="estadoReparacion" placeholder="Estado" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+				
+            <div class="form-group">
+               <label class="col-md-4 control-label" for="importeReparacion">Importe presupuestado</label>
+				<div class="col-md-4">
+					<input id="importeReparacion" name="importeReparacion" placeholder="Importe" class="form-control input-md" required="" type="text">
+                </div>
+			</div>
+					
+            <div class="form-group">
+				<label for="col-md-4 control-label comment">Comentarios</label>
+				<textarea class="col-md-4 form-control input-md" id="comentarioReparacion" name="comentarioReparacion" rows="3" required=""></textarea>
+			</div>
+					
+					
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="modificarReparacion"></label>
+				<div class="col-md-4">
+					<input type="button" id="modificarReparacion" name="modificarReparacion" class="btn bg-success btn-primary" value="Aceptar" />
+						<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+	
+	<!-- Formulario Eliminar reparacion -->
+    <form class="form-horizontal" name="frmBajaReparacion" id="frmBajaReparacion" style="display:none;">
+        <fieldset>
+
+    <!-- Form Name -->
+    <legend>Modificar reparación</legend>
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="repararDispositivo">Dispositivo</label>
+			<select class="form-control col-md-4 input-md" id="repararDispositivo">
+				<option>Aqui</option>
+				<option>Los</option>
+				<option>Moviles</option>
+				<option>Registrados</option>
+			</select>
+		</div>
+
+		<!-- Button -->
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="bajaReparacion"></label>
+			<div class="col-md-4">
+				<input type="button" id="bajaReparacion" name="bajaReparacion" class="btn bg-success btn-primary" value="Aceptar" />
+				<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+            </div>
+        </div> 
+
+        </fieldset>
+    </form>
+	
+	
+	
+	
     <!-- Formulario alta empleado -->
-
     <form class="form-horizontal" name="frmAltaEmpleado" id="frmAltaEmpleado" style="display:none;">
         <fieldset>
 
@@ -246,7 +531,6 @@
 
             <!-- Text input-->
             <div class="form-group">
-
                 <label class="col-md-4 control-label" for="nifEmpleado">NIF</label>
                 <div class="col-md-4">
                     <input id="nifEmpleado" name="nifEmpleado" placeholder="NIF" class="form-control input-md" required="" type="text">
@@ -314,9 +598,115 @@
 
         </fieldset>
     </form>
+	
+	 <!-- Formulario Modificar empleado -->
+    <form class="form-horizontal" name="frmModificarEmpleado" id="frmModificarEmpleado" style="display:none;">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Modificar empleado</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nifEmpleado">NIF</label>
+                <div class="col-md-4">
+                    <input id="nifEmpleado" name="nifEmpleado" placeholder="NIF" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nombreEmpleado">Nombre</label>
+                <div class="col-md-4">
+                    <input id="nombreEmpleado" name="nombreEmpleado" placeholder="Nombre" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="apellidosEmpleado">Apellidos</label>
+                <div class="col-md-4">
+                    <input id="apellidosEmpleado" name="apellidosEmpleado" placeholder="Apellidos" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="direccionEmpleado">Direccion</label>
+                <div class="col-md-4">
+                    <input id="direccionEmpleado" name="direccionEmpleado" placeholder="Direccion" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="telefonoEmpleado">Telefono</label>
+                <div class="col-md-4">
+                    <input id="telefonoEmpleado" name="telefonoEmpleado" placeholder="Telefono" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="emailEmpleado">Email</label>
+                <div class="col-md-4">
+                    <input id="emailEmpleado" name="emailEmpleado" placeholder="Email" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ibanEmpleado">IBAN (Cuenta bancaria)</label>
+                <div class="col-md-4">
+                    <input id="ibanEmpleado" name="ibanEmpleado" placeholder="IBAN" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cargoEmpleado">Cargo</label>
+                <div class="col-md-4">
+                    <input id="cargoEmpleado" name="cargoEmpleado" placeholder="Cargo" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="modificarEmpleado"></label>
+                <div class="col-md-4">
+                    <input type="button" id="modificarEmpleado" name="modificarEmpleado" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+	
+	
+	 <!-- Formulario Baja empleado -->
+    <form class="form-horizontal" name="frmBajaEmpleado" id="frmBajaEmpleado" style="display:none;">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Baja empleado</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="nifEmpleado">NIF</label>
+                <div class="col-md-4">
+                    <input id="nifEmpleado" name="nifEmpleado" placeholder="NIF" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+           
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="bajaEmpleado"></label>
+                <div class="col-md-4">
+                    <input type="button" id="bajaEmpleado" name="bajaEmpleado" class="btn bg-success btn-primary" value="Aceptar" />
+					<input type="button" name="volver" class="btn bg-success btn-primary" value="Volver" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+	
 
     <!-- Formulario pago -->
-
     <form class="form-horizontal" name="frmPago" id="frmPago" style="display:none;">
         <fieldset>
 
@@ -364,7 +754,6 @@
     </form>
 
     <!-- Formulario cobro -->
-
     <form class="form-horizontal" name="frmCobro" id="frmCobro" style="display:none;">
         <fieldset>
 
@@ -439,11 +828,11 @@
 
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
+					<span class="carousel-control-prev-icon"></span>
+				</a>
                 <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
+					<span class="carousel-control-next-icon"></span>
+				</a>
             </div>
         </div>
 
