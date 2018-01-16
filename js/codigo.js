@@ -1,9 +1,3 @@
-class SAT {
-    constructor() {
-
-    }
-}
-
 function Proveedor(sTipo, sNombre, sCIF) {
     this.sTipo = sTipo;
     this.sNombre = sNombre
@@ -114,4 +108,43 @@ function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
 
 Dispositivo.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrega + "</td><td>" + this.fSalida + "</td></tr>";
+}
+
+
+//metodos
+class SAT {
+    constructor() {
+        this._personas = [];
+        this._dispositivos = [];
+    }
+
+    altaCliente(oCliente){
+
+        
+        var esta=false;
+
+        for (var i in this._personas ) {
+            if (oCliente.sDNI == this._personas[i].sDNI && this._personas[i] instanceof Cliente) {
+                esta=true;
+            }
+        }
+        if (!esta) {
+            this._personas.push(oCliente);
+        }
+        return esta;
+    }
+
+    altaDispositivos(oDispositivos) {
+        var bEncontrado = false;
+        for (var i = 0; i < this._dispositivos.length && !bEncontrado; i++) {
+            if (this._dispositivos[i].sModelo == oDispositivos.sModelo) {
+                bEncontrado = true;
+            }
+        }
+        if (!bEncontrado) {
+            this._dispositivos.push(oDispositivos);
+        }
+
+        return bEncontrado;
+    }
 }

@@ -462,8 +462,33 @@ function validarAltaCliente(){
 
 	if(errores)
 		alert(sErrores);
-	else{}
+	else{
+
 		//altaCliente
+		cad="";
+		var sNIFCliente = document.frmAltacliente.nifCliente.value.trim();
+		var sNombreCliente = document.frmAltacliente.nombreCliente.value.trim();
+		var sApellidosCliente = document.frmAltacliente.apellidosCliente.value.trim();
+		var sDireccionCliente = document.frmAltacliente.direccionCliente.value.trim();
+		var sTelefonoCliente = document.frmAltacliente.telefonoCliente.value.trim();
+
+	
+		var oCliente = new Cliente(sNombreCliente,sApellidosCliente,sNIFCliente, sTelefonoCliente, sDireccionCliente);
+		
+		if (oSAT.altaCliente(oCliente)){
+			cad="El cliente ya ha sido registrado anteriormente";
+		}
+		else{
+			cad="Cliente registrado correctamente";
+		}
+
+
+		document.frmAltacliente.style.display = "none";
+		document.frmAltacliente.reset();	
+
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}
+	
 }
 
 function validarModificarCliente(){
@@ -650,7 +675,27 @@ function validarAltaDispositivo(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
+	else{
+		var sMensaje = "";
+        var oFormularios = document.frmAltaDispositivo;
+        var sMarca = oFormularios.marcaDispositivo.value.trim();
+        var sModelo = oFormularios.modeloDispositivo.value.trim();
+        var rGarantia = oFormularios.rbtGarantia.checked;
+        var dFechaEntrada = oFormularios.fechaEntradaDispositivo.value.trim();
+        var dFechaSalida = oFormularios.fechaSalidaDispositivo.value.trim();
+
+        var oDispositivos = new Dispositivo(sMarca, sModelo, rGarantia, new Date(dFechaEntrada), new Date(dFechaSalida));
+        var bEncontrado = oSAT.altaDispositivos(oDispositivos);
+        if (bEncontrado) {
+            sMensaje = "Ese dispositivo ya existe.";
+        } else {
+            sMensaje = "Dispositivo registrado.";
+        }
+
+        oFormularios.style.display = "none";
+        oFormularios.reset();
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}
 		//altaDispositivo		
 	
 }
@@ -1383,7 +1428,3 @@ function volverCobro(){
 var a =document.getElementsByTagName("div");
 var quitar = a.length - 1;
 a[quitar].style.display = "none";
-
-
-
-
