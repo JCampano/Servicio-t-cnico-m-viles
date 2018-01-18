@@ -4,6 +4,14 @@ document.getElementById("navAltaCliente").addEventListener("click", mostrarAltaC
 document.getElementById("navBajaCliente").addEventListener("click", mostrarBajaCliente, false);
 document.getElementById("navModificarCliente").addEventListener("click", mostrarModificarCliente, false);
 
+document.getElementById("navAltaProveedor").addEventListener("click", mostrarAltaProveedor, false);
+document.getElementById("navBajaProveedor").addEventListener("click", mostrarBajaProveedor, false);
+document.getElementById("navModificarProveedor").addEventListener("click", mostrarModificarProveedor, false);
+
+document.getElementById("navAltaPieza").addEventListener("click", mostrarAltaPieza, false);
+document.getElementById("navBajaPieza").addEventListener("click", mostrarBajaPieza, false);
+document.getElementById("navModificarPieza").addEventListener("click", mostrarModificarPieza, false);
+
 document.getElementById("navAltaDispositivo").addEventListener("click", mostrarAltaDispositivo, false);
 document.getElementById("navBajaDispositivo").addEventListener("click", mostrarBajaDispositivo, false);
 document.getElementById("navModificarDispositivo").addEventListener("click", mostrarModificarDispositivo, false);
@@ -20,63 +28,252 @@ document.getElementById("navModificarEmpleado").addEventListener("click", mostra
 document.getElementById("navPago").addEventListener("click", mostrarNuevoPago, false);
 document.getElementById("navCobro").addEventListener("click", mostrarNuevoCobro, false);
 
-function mostrarAltaCliente() {
-	document.frmAltacliente.reset();
-	document.frmAltacliente.nifCliente.style.background = "white";
-	document.frmAltacliente.nombreCliente.style.background = "white";	
-	document.frmAltacliente.apellidosCliente.style.background = "white";
-	document.frmAltacliente.direccionCliente.style.background = "white";
-	document.frmAltacliente.telefonoCliente.style.background = "white";
+function mostrarAltaProveedor(){
+	document.frmAltaProveedor.reset();
+	document.frmAltaProveedor.nifProveedor.style.background = "white";
+	document.frmAltaProveedor.nombreProveedor.style.background = "white";	
+	document.frmAltaProveedor.tipoProveedor.style.background = "white";
 	
-    document.getElementById('frmAltacliente').style.display = "block";
+	
+	document.getElementById('frmAltaProveedor').style.display = "block";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";	
+	document.getElementById('frmModificarPieza').style.display = "none";
+}
+
+function mostrarModificarProveedor(){
+	document.frmModificarProveedor.reset();
+	document.frmModificarProveedor.nifProveedor.style.background = "white";
+	document.frmModificarProveedor.nombreProveedor.style.background = "white";	
+	document.frmModificarProveedor.tipoProveedor.style.background = "white";
+	
+	document.getElementById('frmModificarProveedor').style.display = "block";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";	
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+}
+
+function mostrarBajaProveedor(){
+	document.frmBajaProveedor.reset();
+	document.frmBajaProveedor.nifProveedor.style.background = "white";
+	
+	document.getElementById('frmBajaProveedor').style.display = "block";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";	
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+}
+
+
+
+function mostrarAltaPieza(){
+	document.frmAltaPieza.reset();
+	document.frmAltaPieza.idPieza.style.background = "white";
+	document.frmAltaPieza.tipoPieza.style.background = "white";	
+	document.frmAltaPieza.precioPieza.style.background = "white";
+	
+	
+	document.getElementById('frmAltaPieza').style.display = "block";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";	
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+}
+
+function mostrarModificarPieza(){
+	document.frmModificarPieza.reset();
+	document.frmModificarPieza.idPieza.style.background = "white";
+	document.frmModificarPieza.tipoPieza.style.background = "white";	
+	document.frmModificarPieza.precioPieza.style.background = "white";
+	
+	document.getElementById('frmModificarPieza').style.display = "block";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";	
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+}
+
+function mostrarBajaPieza(){
+	document.frmBajaPieza.reset();
+	document.frmBajaPieza.idPieza.style.background = "white";
+	
+	
+	document.getElementById('frmBajaPieza').style.display = "block";
+	document.getElementById('frmAltaPieza').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";	
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+}
+
+
+
+function mostrarAltaCliente() {
+	document.frmAltaCliente.reset();
+	document.frmAltaCliente.nifCliente.style.background = "white";
+	document.frmAltaCliente.nombreCliente.style.background = "white";	
+	document.frmAltaCliente.apellidosCliente.style.background = "white";
+	document.frmAltaCliente.direccionCliente.style.background = "white";
+	document.frmAltaCliente.telefonoCliente.style.background = "white";
+	
+    document.getElementById('frmAltaCliente').style.display = "block";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarBajaCliente() {
-	document.frmBajacliente.reset();
-	document.frmBajacliente.nifCliente.style.background = "white";	
+	document.frmBajaCliente.reset();
+	document.frmBajaCliente.nifCliente.style.background = "white";	
 	
-	document.getElementById('frmBajacliente').style.display = "block";
-    document.getElementById('frmAltacliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "block";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarModificarCliente(){
-	document.frmModificarcliente.reset();
-	document.frmModificarcliente.nifCliente.style.background = "white";
-	document.frmModificarcliente.nombreCliente.style.background = "white";	
-	document.frmModificarcliente.apellidosCliente.style.background = "white";
-	document.frmModificarcliente.direccionCliente.style.background = "white";
-	document.frmModificarcliente.telefonoCliente.style.background = "white";
+	document.frmModificarCliente.reset();
+	document.frmModificarCliente.nifCliente.style.background = "white";
+	document.frmModificarCliente.nombreCliente.style.background = "white";	
+	document.frmModificarCliente.apellidosCliente.style.background = "white";
+	document.frmModificarCliente.direccionCliente.style.background = "white";
+	document.frmModificarCliente.telefonoCliente.style.background = "white";
 	
-	document.getElementById('frmModificarcliente').style.display = "block";
-	document.getElementById('frmBajacliente').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "block";
+	document.getElementById('frmBajaCliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
@@ -89,6 +286,12 @@ function mostrarModificarCliente(){
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 
@@ -101,20 +304,26 @@ function mostrarAltaDispositivo() {
 	document.frmAltaDispositivo.marcaDispositivo.style.background = "white";			
 	
     document.getElementById('frmAltaDispositivo').style.display = "block";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarBajaDispositivo() {
@@ -123,19 +332,25 @@ function mostrarBajaDispositivo() {
 	
 	document.getElementById('frmBajaDispositivo').style.display = "block";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarModificarDispositivo() {
@@ -148,18 +363,24 @@ function mostrarModificarDispositivo() {
 	document.getElementById('frmModificarDispositivo').style.display = "block";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 
@@ -174,18 +395,24 @@ function mostrarNuevaReparacion() {
     document.getElementById('frmAltaReparacion').style.display = "block";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarModificarReparacion() {
@@ -199,17 +426,23 @@ function mostrarModificarReparacion() {
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarBajaReparacion(){
@@ -220,16 +453,22 @@ function mostrarBajaReparacion(){
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
     document.getElementById('frmAltaEmpleado').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 
@@ -248,18 +487,24 @@ function mostrarNuevoEmpleado() {
     document.getElementById('frmAltaEmpleado').style.display = "block";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarBajaEmpleado() {
@@ -270,17 +515,23 @@ function mostrarBajaEmpleado() {
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarModificarEmpleado() {
@@ -299,17 +550,24 @@ function mostrarModificarEmpleado() {
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('frmPago').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
+
 
 
 function mostrarNuevoPago() {
@@ -323,17 +581,23 @@ function mostrarNuevoPago() {
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('frmCobro').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";	
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 function mostrarNuevoCobro() {
@@ -348,16 +612,22 @@ function mostrarNuevoCobro() {
     document.getElementById('frmAltaEmpleado').style.display = "none";
     document.getElementById('frmAltaReparacion').style.display = "none";
     document.getElementById('frmAltaDispositivo').style.display = "none";
-    document.getElementById('frmAltacliente').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
     document.getElementById('jumbo').style.display = "none";
-	document.getElementById('frmBajacliente').style.display = "none";
-	document.getElementById('frmModificarcliente').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
 	document.getElementById('frmBajaDispositivo').style.display = "none";
 	document.getElementById('frmModificarDispositivo').style.display = "none";
 	document.getElementById('frmModificarReparacion').style.display = "none";
 	document.getElementById('frmBajaReparacion').style.display = "none";
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 }
 
 
@@ -379,15 +649,287 @@ document.getElementById("altaEmpleado").addEventListener("click", validarAltaEmp
 document.getElementById("bajaEmpleado").addEventListener("click", validarBajaEmpleado, false);
 document.getElementById("modificarEmpleado").addEventListener("click", validarModificarEmpleado, false);
 
+document.getElementById("altaPieza").addEventListener("click", validarAltaPieza, false);
+document.getElementById("bajaPieza").addEventListener("click", validarBajaPieza, false);
+document.getElementById("modificarPieza").addEventListener("click", validarModificarPieza, false);
+
+document.getElementById("altaProveedor").addEventListener("click", validarAltaProveedor, false);
+document.getElementById("bajaProveedor").addEventListener("click", validarBajaProveedor, false);
+document.getElementById("modificarProveedor").addEventListener("click", validarModificarProveedor, false);
+
 document.getElementById("altaPago").addEventListener("click", validarAltaPago, false);
 document.getElementById("altaCobro").addEventListener("click", validarAltaCobro, false);
 
+
+function validarAltaPieza(){
+	var id = document.frmAltaPieza.idPieza.value.trim();
+	var tipo = document.frmAltaPieza.tipoPieza.value.trim();
+	var precio = document.frmAltaPieza.precioPieza.value.trim();
+	
+	var errores = false;
+	var expRegId = /^[a-zA-Z0-9]{4}$/;
+	var expRegTipo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegPrecio = /^\d*[.]?\d{1,3}[€]$/;
+		
+	//validaciones
+	var sErrores = "";
+
+	//ID
+	if (expRegId.test(id) == false){		
+		errores = true;					
+		document.frmAltaPieza.idPieza.focus();	//Este campo obtiene el foco			
+		sErrores += "El id debe contener 4 caracteres \n";			
+		document.frmAltaPieza.idPieza.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmAltaPieza.idPieza.style.background = "white";	
+	}
+	
+	//tipo
+	if (expRegTipo.test(tipo) == false){		
+		errores = true;					
+		document.frmAltaPieza.tipoPieza.focus();	//Este campo obtiene el foco			
+		sErrores += "El Tipo de pieza debe ser una cadena entre 3 y 20 caracteres \n";			
+		document.frmAltaPieza.tipoPieza.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmAltaPieza.tipoPieza.style.background = "white";	
+	}
+	
+	//Precio
+	if (expRegPrecio.test(precio) == false){	
+		errores = true;				
+		document.frmAltaPieza.precioPieza.focus(); //Este campo obtiene el foco		
+		sErrores += 'El campo Precio debe contener numeros y acabar con el caracter €\n';				
+		document.frmAltaPieza.precioPieza.style.background = "yellow"; //Marcar error
+	}
+	else { //Desmarcar error
+		document.frmAltaPieza.precioPieza.style.background = "white";	
+	}
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//alta
+}
+function validarBajaPieza(){
+	var id = document.frmBajaPieza.idPieza.value.trim();
+		
+	var errores = false;
+	var expRegId = /^[a-zA-Z0-9]{4}$/;
+	var expRegTipo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegPrecio = /^\d*[.]?\d{1,3}[€]$/;
+		
+	//validaciones
+	var sErrores = "";
+
+	//ID
+	if (expRegId.test(id) == false){		
+		errores = true;					
+		document.frmBajaPieza.idPieza.focus();	//Este campo obtiene el foco			
+		sErrores += "El id debe contener 4 caracteres \n";			
+		document.frmBajaPieza.idPieza.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmBajaPieza.idPieza.style.background = "white";	
+	}	
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//baja
+}
+function validarModificarPieza(){
+	var id = document.frmModificarPieza.idPieza.value.trim();
+	var tipo = document.frmModificarPieza.tipoPieza.value.trim();
+	var precio = document.frmModificarPieza.precioPieza.value.trim();
+	
+	var errores = false;
+	var expRegId = /^[a-zA-Z0-9]{4}$/;
+	var expRegTipo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegPrecio = /^\d*[.]?\d{1,3}[€]$/;
+		
+	//validaciones
+	var sErrores = "";
+
+	//ID
+	if (expRegId.test(id) == false){		
+		errores = true;					
+		document.frmModificarPieza.idPieza.focus();	//Este campo obtiene el foco			
+		sErrores += "El id debe contener 4 caracteres \n";			
+		document.frmModificarPieza.idPieza.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmModificarPieza.idPieza.style.background = "white";	
+	}
+	
+	//tipo
+	if (expRegTipo.test(tipo) == false){		
+		errores = true;					
+		document.frmModificarPieza.tipoPieza.focus();	//Este campo obtiene el foco			
+		sErrores += "El Tipo de pieza debe ser una cadena entre 3 y 20 caracteres \n";			
+		document.frmModificarPieza.tipoPieza.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmModificarPieza.tipoPieza.style.background = "white";	
+	}
+	
+	//Precio
+	if (expRegPrecio.test(precio) == false){	
+		errores = true;				
+		document.frmModificarPieza.precioPieza.focus(); //Este campo obtiene el foco		
+		sErrores += 'El campo Precio debe contener numeros y acabar con el caracter €\n';				
+		document.frmModificarPieza.precioPieza.style.background = "yellow"; //Marcar error
+	}
+	else { //Desmarcar error
+		document.frmModificarPieza.precioPieza.style.background = "white";	
+	}
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//modif
+}
+
+
+
+function validarAltaProveedor(){	
+	var nif = document.frmAltaProveedor.nifProveedor.value.trim();
+	var nombre = document.frmAltaProveedor.nombreProveedor.value.trim();
+	var tipo = document.frmAltaProveedor.tipoProveedor.value.trim();		
+		
+	var errores = false;
+	var expRegNif = /^[0-9]{8}[a-zA-Z]{1}$/;
+	var expRegNombre = /^[[a-zA-Z\s]{3,20}$/;
+	var expRegTipo = /^[[a-zA-Z\s]{3,15}$/;
+		
+	//validaciones
+	var sErrores = "";
+
+	//NIf
+	if (expRegNif.test(nif) == false){		
+		errores = true;					
+		document.frmAltaProveedor.nifProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El Nif debe contener 8 números y 1 letra \n";			
+		document.frmAltaProveedor.nifProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmAltaProveedor.nifProveedor.style.background = "white";	
+	}
+
+	//nombre
+	if (expRegNombre.test(nombre) == false){		
+		errores = true;					
+		document.frmAltaProveedor.nombreProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El nombre debe contener entre 3 y 20 caracteres\n";			
+		document.frmAltaProveedor.nombreProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmAltaProveedor.nombreProveedor.style.background = "white";	
+	}	
+	
+	//tipo
+	if (expRegTipo.test(tipo) == false){		
+		errores = true;					
+		document.frmAltaProveedor.tipoProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El campo tipo debe contener entre 3 y 15 caracteres\n";			
+		document.frmAltaProveedor.tipoProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmAltaProveedor.tipoProveedor.style.background = "white";	
+	}	
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//alta
+}
+function validarBajaProveedor(){
+	var nif = document.frmBajaProveedor.nifProveedor.value.trim();	
+		
+	var errores = false;
+	var expRegNif = /^[0-9]{8}[a-zA-Z]{1}$/;
+	
+		
+	//validaciones
+	var sErrores = "";
+
+	//NIf
+	if (expRegNif.test(nif) == false){		
+		errores = true;					
+		document.frmBajaProveedor.nifProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El Nif debe contener 8 números y 1 letra \n";			
+		document.frmBajaProveedor.nifProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmBajaProveedor.nifProveedor.style.background = "white";	
+	}
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//baja
+}
+function validarModificarProveedor(){
+	var nif = document.frmModificarProveedor.nifProveedor.value.trim();
+	var nombre = document.frmModificarProveedor.nombreProveedor.value.trim();
+	var tipo = document.frmModificarProveedor.tipoProveedor.value.trim();		
+		
+	var errores = false;
+	var expRegNif = /^[0-9]{8}[a-zA-Z]{1}$/;
+	var expRegNombre = /^[[a-zA-Z\s]{3,20}$/;
+	var expRegTipo = /^[[a-zA-Z\s]{3,15}$/;
+		
+	//validaciones
+	var sErrores = "";
+
+	//NIf
+	if (expRegNif.test(nif) == false){		
+		errores = true;					
+		document.frmModificarProveedor.nifProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El Nif debe contener 8 números y 1 letra \n";			
+		document.frmModificarProveedor.nifProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmModificarProveedor.nifProveedor.style.background = "white";	
+	}
+
+	//nombre
+	if (expRegNombre.test(nombre) == false){		
+		errores = true;					
+		document.frmModificarProveedor.nombreProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El nombre debe contener entre 3 y 20 caracteres\n";			
+		document.frmModificarProveedor.nombreProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmModificarProveedor.nombreProveedor.style.background = "white";	
+	}	
+	
+	//tipo
+	if (expRegTipo.test(tipo) == false){		
+		errores = true;					
+		document.frmModificarProveedor.tipoProveedor.focus();	//Este campo obtiene el foco			
+		sErrores += "El campo tipo debe contener entre 3 y 15 caracteres\n";			
+		document.frmModificarProveedor.tipoProveedor.style.background = "yellow";  //Marcar error
+	}
+	else {//Desmarcar error		
+		document.frmModificarProveedor.tipoProveedor.style.background = "white";	
+	}	
+	
+	if(errores)
+		alert(sErrores);
+	else{}
+		//modif
+}
+
+
+
 function validarAltaCliente(){
-	var nif = document.frmAltacliente.nifCliente.value.trim();
-	var nombre = document.frmAltacliente.nombreCliente.value.trim();
-	var apellidos = document.frmAltacliente.apellidosCliente.value.trim();
-	var direccion = document.frmAltacliente.direccionCliente.value.trim();
-	var telefono = document.frmAltacliente.telefonoCliente.value.trim();
+	var nif = document.frmAltaCliente.nifCliente.value.trim();
+	var nombre = document.frmAltaCliente.nombreCliente.value.trim();
+	var apellidos = document.frmAltaCliente.apellidosCliente.value.trim();
+	var direccion = document.frmAltaCliente.direccionCliente.value.trim();
+	var telefono = document.frmAltaCliente.telefonoCliente.value.trim();
 	
 	
 	
@@ -405,59 +947,59 @@ function validarAltaCliente(){
 	//NIF
 	if (expRegNif.test(nif) == false){		
 		errores = true;					
-		document.frmAltacliente.nifCliente.focus();	//Este campo obtiene el foco			
+		document.frmAltaCliente.nifCliente.focus();	//Este campo obtiene el foco			
 		sErrores += "El campo NIF debe contener 8 números y acabar en 1 letra\n";			
-		document.frmAltacliente.nifCliente.style.background = "yellow";  //Marcar error
+		document.frmAltaCliente.nifCliente.style.background = "yellow";  //Marcar error
 	}
 	else {//Desmarcar error		
-		document.frmAltacliente.nifCliente.style.background = "white";	
+		document.frmAltaCliente.nifCliente.style.background = "white";	
 	}
 	
 	//NOMBRE
 	if (expRegNombre.test(nombre) == false){
 		errores = true;	
-		document.frmAltacliente.nombreCliente.focus(); //Este campo obtiene el foco		
+		document.frmAltaCliente.nombreCliente.focus(); //Este campo obtiene el foco		
 		sErrores += "El campo Nombre debe contener al menos 3 caracteres\n";		
-		document.frmAltacliente.nombreCliente.style.background = "yellow"; //Marcar error
+		document.frmAltaCliente.nombreCliente.style.background = "yellow"; //Marcar error
 	}
 	else {//Desmarcar error
-		document.frmAltacliente.nombreCliente.style.background = "white";	
+		document.frmAltaCliente.nombreCliente.style.background = "white";	
 	}
 
 
 //APELLIDOS
 	if (expRegApellidos.test(apellidos) == false){
 		errores = true;					
-		document.frmAltacliente.apellidosCliente.focus(); //Este campo obtiene el foco		
+		document.frmAltaCliente.apellidosCliente.focus(); //Este campo obtiene el foco		
 		sErrores += "El campo Apellidos debe contener al menos 3 caracteres\n";		
-		document.frmAltacliente.apellidosCliente.style.background = "yellow";  //Marcar error
+		document.frmAltaCliente.apellidosCliente.style.background = "yellow";  //Marcar error
 	}
 	else {//Desmarcar error
-		document.frmAltacliente.apellidosCliente.style.background = "white";	
+		document.frmAltaCliente.apellidosCliente.style.background = "white";	
 	}
 
 
 //DIRECCION
 	if (expRegDireccion.test(direccion) == false){
 		errores = true;		
-		document.frmAltacliente.direccionCliente.focus();	//Este campo obtiene el foco
+		document.frmAltaCliente.direccionCliente.focus();	//Este campo obtiene el foco
 		sErrores += "El campo Direccion debe contener entre 3  y 40 caracteres\n";
-		document.frmAltacliente.direccionCliente.style.background = "yellow"; 	//Marcar error
+		document.frmAltaCliente.direccionCliente.style.background = "yellow"; 	//Marcar error
 	}
 	else {	//Desmarcar error
-		document.frmAltacliente.direccionCliente.style.background = "white";	
+		document.frmAltaCliente.direccionCliente.style.background = "white";	
 	}
 
 
 //TELEFONO
 	if (expRegTelefono.test(telefono) == false){
 		errores = true;				
-		document.frmAltacliente.telefonoCliente.focus();	//Este campo obtiene el foco
+		document.frmAltaCliente.telefonoCliente.focus();	//Este campo obtiene el foco
 		sErrores += "El campo Teléfono debe contener 9 números y empezar por 9 , 7 o 6 ";		
-		document.frmAltacliente.telefonoCliente.style.background = "yellow";//Marcar error
+		document.frmAltaCliente.telefonoCliente.style.background = "yellow";//Marcar error
 	}
 	else {//Desmarcar error
-		document.frmAltacliente.telefonoCliente.style.background = "white";	
+		document.frmAltaCliente.telefonoCliente.style.background = "white";	
 	}
 
 	if(errores)
@@ -466,25 +1008,25 @@ function validarAltaCliente(){
 
 		//altaCliente
 		cad="";
-		var sNIFCliente = document.frmAltacliente.nifCliente.value.trim();
-		var sNombreCliente = document.frmAltacliente.nombreCliente.value.trim();
-		var sApellidosCliente = document.frmAltacliente.apellidosCliente.value.trim();
-		var sDireccionCliente = document.frmAltacliente.direccionCliente.value.trim();
-		var sTelefonoCliente = document.frmAltacliente.telefonoCliente.value.trim();
+		//var sNIFCliente = document.frmAltaCliente.nifCliente.value.trim();
+		//var sNombreCliente = document.frmAltaCliente.nombreCliente.value.trim();
+		//var sApellidosCliente = document.frmAltaCliente.apellidosCliente.value.trim();
+		//var sDireccionCliente = document.frmAltaCliente.direccionCliente.value.trim();
+		//var sTelefonoCliente = document.frmAltaCliente.telefonoCliente.value.trim();
 
 	
-		var oCliente = new Cliente(sNombreCliente,sApellidosCliente,sNIFCliente, sTelefonoCliente, sDireccionCliente);
+		var oCliente = new Cliente(nombre,apellidos,nif, telefono, direccion);
 		
 		if (oSAT.altaCliente(oCliente)){
-			cad="El cliente ya ha sido registrado anteriormente";
+			cad="El Cliente ya ha sido registrado anteriormente";
 		}
 		else{
 			cad="Cliente registrado correctamente";
 		}
 
 
-		document.frmAltacliente.style.display = "none";
-		document.frmAltacliente.reset();	
+		document.frmAltaCliente.style.display = "none";
+		document.frmAltaCliente.reset();	
 
 		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
 	}
@@ -492,11 +1034,11 @@ function validarAltaCliente(){
 }
 
 function validarModificarCliente(){
-	var nif = document.frmModificarcliente.nifCliente.value.trim();
-	var nombre = document.frmModificarcliente.nombreCliente.value.trim();
-	var apellidos = document.frmModificarcliente.apellidosCliente.value.trim();
-	var direccion = document.frmModificarcliente.direccionCliente.value.trim();
-	var telefono = document.frmModificarcliente.telefonoCliente.value.trim();
+	var nif = document.frmModificarCliente.nifCliente.value.trim();
+	var nombre = document.frmModificarCliente.nombreCliente.value.trim();
+	var apellidos = document.frmModificarCliente.apellidosCliente.value.trim();
+	var direccion = document.frmModificarCliente.direccionCliente.value.trim();
+	var telefono = document.frmModificarCliente.telefonoCliente.value.trim();
 	
 	
 	
@@ -514,59 +1056,59 @@ function validarModificarCliente(){
 	//NIF
 	if (expRegNif.test(nif) == false){		
 		errores = true;					
-		document.frmModificarcliente.nifCliente.focus();	//Este campo obtiene el foco			
+		document.frmModificarCliente.nifCliente.focus();	//Este campo obtiene el foco			
 		sErrores += "El campo NIF debe contener 8 números y acabar en 1 letra\n";			
-		document.frmModificarcliente.nifCliente.style.background = "yellow";  //Marcar error
+		document.frmModificarCliente.nifCliente.style.background = "yellow";  //Marcar error
 	}
 	else {//Desmarcar error		
-		document.frmModificarcliente.nifCliente.style.background = "white";	
+		document.frmModificarCliente.nifCliente.style.background = "white";	
 	}
 	
 	//NOMBRE
 	if (expRegNombre.test(nombre) == false){
 		errores = true;	
-		document.frmModificarcliente.nombreCliente.focus(); //Este campo obtiene el foco		
+		document.frmModificarCliente.nombreCliente.focus(); //Este campo obtiene el foco		
 		sErrores += "El campo Nombre debe contener al menos 3 caracteres\n";		
-		document.frmModificarcliente.nombreCliente.style.background = "yellow"; //Marcar error
+		document.frmModificarCliente.nombreCliente.style.background = "yellow"; //Marcar error
 	}
 	else {//Desmarcar error
-		document.frmModificarcliente.nombreCliente.style.background = "white";	
+		document.frmModificarCliente.nombreCliente.style.background = "white";	
 	}
 
 
 //APELLIDOS
 	if (expRegApellidos.test(apellidos) == false){
 		errores = true;					
-		document.frmModificarcliente.apellidosCliente.focus(); //Este campo obtiene el foco		
+		document.frmModificarCliente.apellidosCliente.focus(); //Este campo obtiene el foco		
 		sErrores += "El campo Apellidos debe contener al menos 3 caracteres\n";		
-		document.frmModificarcliente.apellidosCliente.style.background = "yellow";  //Marcar error
+		document.frmModificarCliente.apellidosCliente.style.background = "yellow";  //Marcar error
 	}
 	else {//Desmarcar error
-		document.frmModificarcliente.apellidosCliente.style.background = "white";	
+		document.frmModificarCliente.apellidosCliente.style.background = "white";	
 	}
 
 
 //DIRECCION
 	if (expRegDireccion.test(direccion) == false){
 		errores = true;		
-		document.frmModificarcliente.direccionCliente.focus();	//Este campo obtiene el foco
+		document.frmModificarCliente.direccionCliente.focus();	//Este campo obtiene el foco
 		sErrores += "El campo Direccion debe contener entre 3  y 40 caracteres\n";
-		document.frmModificarcliente.direccionCliente.style.background = "yellow"; 	//Marcar error
+		document.frmModificarCliente.direccionCliente.style.background = "yellow"; 	//Marcar error
 	}
 	else {	//Desmarcar error
-		document.frmModificarcliente.direccionCliente.style.background = "white";	
+		document.frmModificarCliente.direccionCliente.style.background = "white";	
 	}
 
 
 //TELEFONO
 	if (expRegTelefono.test(telefono) == false){
 		errores = true;				
-		document.frmModificarcliente.telefonoCliente.focus();	//Este campo obtiene el foco
+		document.frmModificarCliente.telefonoCliente.focus();	//Este campo obtiene el foco
 		sErrores += "El campo Teléfono debe contener 9 números y empezar por 9 , 7 o 6 ";		
-		document.frmModificarcliente.telefonoCliente.style.background = "yellow";//Marcar error
+		document.frmModificarCliente.telefonoCliente.style.background = "yellow";//Marcar error
 	}
 	else {//Desmarcar error
-		document.frmModificarcliente.telefonoCliente.style.background = "white";	
+		document.frmModificarCliente.telefonoCliente.style.background = "white";	
 	}
 
 	if(errores)
@@ -576,7 +1118,7 @@ function validarModificarCliente(){
 }
 
 function validarBajaCliente(){
-	var nif = document.frmBajacliente.nifCliente.value.trim();
+	var nif = document.frmBajaCliente.nifCliente.value.trim();
 	var errores = false;
 	var expRegNif = /^\d{8}\w$/;
 		
@@ -586,12 +1128,12 @@ function validarBajaCliente(){
 	//NIF
 	if (expRegNif.test(nif) == false){		
 		errores = true;					
-		document.frmBajacliente.nifCliente.focus();	//Este campo obtiene el foco			
+		document.frmBajaCliente.nifCliente.focus();	//Este campo obtiene el foco			
 		sErrores += "El campo NIF debe contener 8 números y acabar en 1 letra\n";			
-		document.frmBajacliente.nifCliente.style.background = "yellow";  //Marcar error
+		document.frmBajaCliente.nifCliente.style.background = "yellow";  //Marcar error
 	}
 	else {//Desmarcar error		
-		document.frmBajacliente.nifCliente.style.background = "white";	
+		document.frmBajaCliente.nifCliente.style.background = "white";	
 	}
 	
 	if(errores)
@@ -599,7 +1141,6 @@ function validarBajaCliente(){
 	else{}
 		//baja
 }
-
 
 
 function validarAltaDispositivo(){
@@ -803,7 +1344,6 @@ function validarBajaDispositivo(){
 		//altaDispositivo		
 	
 }
-
 
 
 function validarAltaReparacion(){
@@ -1250,6 +1790,7 @@ function validarBajaEmpleado(){
 		//baja
 }
 
+
 function validarAltaPago(){
 	var importe = document.frmPago.importePago.value.trim();
 	var fechaEntrada = document.frmPago.fechaPago.value.trim();
@@ -1387,30 +1928,139 @@ function validarAltaCobro(){
 }
 
 // eventos botones volver
-document.frmAltacliente.volver.addEventListener("click", volverCliente, false);
-document.frmAltaDispositivo.volver.addEventListener("click", volverDispositivo, false);
-document.frmAltaReparacion.volver.addEventListener("click", volverReparacion, false);
-document.frmAltaEmpleado.volver.addEventListener("click", volverEmpleado, false);
+document.frmAltaCliente.volver.addEventListener("click", volverAltaCliente, false);
+document.frmBajaCliente.volver.addEventListener("click", volverBajaCliente, false);
+document.frmModificarCliente.volver.addEventListener("click", volverModificarCliente, false);
+
+
+document.frmAltaDispositivo.volver.addEventListener("click", volverAltaDispositivo, false);
+document.frmBajaDispositivo.volver.addEventListener("click", volverBajaDispositivo, false);
+document.frmModificarDispositivo.volver.addEventListener("click", volverModificarDispositivo, false);
+
+
+document.frmAltaReparacion.volver.addEventListener("click", volverAltaReparacion, false);
+document.frmBajaReparacion.volver.addEventListener("click", volverBajaReparacion, false);
+document.frmModificarReparacion.volver.addEventListener("click", volverModificarReparacion, false);
+
+document.frmAltaProveedor.volver.addEventListener("click", volverAltaProveedor, false);
+document.frmBajaProveedor.volver.addEventListener("click", volverBajaProveedor, false);
+document.frmModificarProveedor.volver.addEventListener("click", volverModificarProveedor, false);
+
+document.frmAltaPieza.volver.addEventListener("click", volverAltaPieza, false);
+document.frmBajaPieza.volver.addEventListener("click", volverBajaPieza, false);
+document.frmModificarPieza.volver.addEventListener("click", volverModificarPieza, false);
+
+
+document.frmAltaEmpleado.volver.addEventListener("click", volverAltaEmpleado, false);
+document.frmBajaEmpleado.volver.addEventListener("click", volverBajaEmpleado, false);
+document.frmModificarEmpleado.volver.addEventListener("click", volverModificarEmpleado, false);
+
+
 document.frmPago.volver.addEventListener("click", volverPago, false);
 document.frmCobro.volver.addEventListener("click", volverCobro, false);
 
-function volverCliente(){
-	document.frmAltacliente.style.display = "none";
+function volverAltaCliente(){
+	document.frmAltaCliente.style.display = "none";
 	document.getElementById('jumbo').style.display = "block";
 }
 
-function volverDispositivo(){
+function volverBajaCliente(){
+	document.frmBajaCliente.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarCliente(){
+	document.frmModificarCliente.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
+function volverAltaProveedor(){
+	document.frmAltaProveedor.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverBajaProveedor(){
+	document.frmBajaProveedor.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarProveedor(){
+	document.frmModificarProveedor.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
+function volverAltaPieza(){
+	document.frmAltaPieza.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverBajaPieza(){
+	document.frmBajaPieza.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarPieza(){
+	document.frmModificarPieza.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
+function volverAltaDispositivo(){
 	document.frmAltaDispositivo.style.display = "none";
 	document.getElementById('jumbo').style.display = "block";
 }
-function volverReparacion(){
+
+function volverBajaDispositivo(){
+	document.frmBajaDispositivo.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarDispositivo(){
+	document.frmModificarDispositivo.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
+function volverAltaReparacion(){
 	document.frmAltaReparacion.style.display = "none";
 	document.getElementById('jumbo').style.display = "block";
 }
-function volverEmpleado(){
+
+function volverBajaReparacion(){
+	document.frmBajaReparacion.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarReparacion(){
+	document.frmModificarReparacion.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
+function volverAltaEmpleado(){
 	document.frmAltaEmpleado.style.display = "none";
 	document.getElementById('jumbo').style.display = "block";
 }
+
+function volverBajaEmpleado(){
+	document.frmBajaEmpleado.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+function volverModificarEmpleado(){
+	document.frmModificarEmpleado.style.display = "none";
+	document.getElementById('jumbo').style.display = "block";
+}
+
+
+
 function volverPago(){
 	document.frmPago.style.display = "none";
 	document.getElementById('jumbo').style.display = "block";
