@@ -709,9 +709,20 @@ function validarAltaPieza(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//alta
+	else{
+		cad="";	
+		var oPieza = new Pieza_Repuesto(tipo,precio,id);
+		if (oSAT.altaPieza(oPieza)){
+			cad="La pieza ya ha sido registrado anteriormente";
+		}
+		else{
+			cad="Pieza registrada correctamente";
+			document.frmAltaPieza.reset();
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
+
 function validarBajaPieza(){
 	var id = document.frmBajaPieza.idPieza.value.trim();
 		
@@ -736,9 +747,19 @@ function validarBajaPieza(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//baja
+	else{
+		cad="";			
+		if (oSAT.bajaPieza(id)){
+			cad="Pieza dada de baja";
+			document.frmBajaPieza.reset();
+		}
+		else{
+			cad="Pieza no registrada";
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
+
 function validarModificarPieza(){
 	var id = document.frmModificarPieza.idPieza.value.trim();
 	var tipo = document.frmModificarPieza.tipoPieza.value.trim();
@@ -787,8 +808,18 @@ function validarModificarPieza(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modif
+	else{
+		cad="";	
+		var oPieza = new Pieza_Repuesto(tipo,precio,id);
+		if (oSAT.modificarPieza(oPieza)){
+			cad="La pieza ha sido modificada";
+			document.frmModificarPieza.reset();
+		}
+		else{
+			cad="Pieza no encontrada";			
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 
@@ -841,9 +872,20 @@ function validarAltaProveedor(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//alta
+	else{
+		cad="";	
+		var oProveedor = new Proveedor(tipo,nombre,nif);
+		if (oSAT.altaProveedor(oProveedor)){
+			cad="El Proveedor ya ha sido registrado anteriormente";
+		}
+		else{
+			cad="Proveedor registrado correctamente";
+			document.frmAltaProveedor.reset();
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
+
 function validarBajaProveedor(){
 	var nif = document.frmBajaProveedor.nifProveedor.value.trim();	
 		
@@ -867,9 +909,19 @@ function validarBajaProveedor(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//baja
+	else{
+		cad="";	
+		if (!oSAT.bajaProveedor(nif)){
+			cad="El Proveedor ha sido dado de baja";
+		}
+		else{
+			cad="Proveedor no registrado";
+			document.frmBajaProveedor.reset();
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
+
 function validarModificarProveedor(){
 	var nif = document.frmModificarProveedor.nifProveedor.value.trim();
 	var nombre = document.frmModificarProveedor.nombreProveedor.value.trim();
@@ -918,8 +970,18 @@ function validarModificarProveedor(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modif
+	else{
+		cad="";	
+		var oProveedor = new Proveedor(tipo,nombre,nif);
+		if (!oSAT.modificarProveedor(oProveedor)){
+			cad="Proveedor no registrado";
+		}
+		else{
+			cad="Proveedor modificado correctamente";
+			document.frmModificarProveedor.reset();
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 
@@ -1004,33 +1066,18 @@ function validarAltaCliente(){
 
 	if(errores)
 		alert(sErrores);
-	else{
-
-		//altaCliente
-		cad="";
-		//var sNIFCliente = document.frmAltaCliente.nifCliente.value.trim();
-		//var sNombreCliente = document.frmAltaCliente.nombreCliente.value.trim();
-		//var sApellidosCliente = document.frmAltaCliente.apellidosCliente.value.trim();
-		//var sDireccionCliente = document.frmAltaCliente.direccionCliente.value.trim();
-		//var sTelefonoCliente = document.frmAltaCliente.telefonoCliente.value.trim();
-
-	
+	else{		
+		cad="";	
 		var oCliente = new Cliente(nombre,apellidos,nif, telefono, direccion);
-		
 		if (oSAT.altaCliente(oCliente)){
-			cad="El Cliente ya ha sido registrado anteriormente";
+			cad="Cliente registrado anteriormente";
 		}
 		else{
 			cad="Cliente registrado correctamente";
-		}
-
-
-		document.frmAltaCliente.style.display = "none";
-		document.frmAltaCliente.reset();	
-
+			document.frmAltaCliente.reset();
+		}			
 		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
-	}
-	
+	}	
 }
 
 function validarModificarCliente(){
@@ -1113,8 +1160,18 @@ function validarModificarCliente(){
 
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modificar
+	else{
+		cad="";	
+		var oCliente = new Cliente(nombre,apellidos,nif, telefono, direccion);
+		if (oSAT.modificarCliente(oCliente)){
+			cad="El Cliente modificado correctamente";
+			document.frmModificarCliente.reset();
+		}
+		else{
+			cad="Cliente no registrado";
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarBajaCliente(){
@@ -1138,8 +1195,17 @@ function validarBajaCliente(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//baja
+	else{
+		cad="";	
+		if (oSAT.bajaCliente(nif)){
+			cad="El Cliente ha sido dado de baja";
+		}
+		else{
+			cad="Cliente no registrado";
+			document.frmBajaCliente.reset();
+		}			
+		alert(cad); //aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 
@@ -1217,28 +1283,19 @@ function validarAltaDispositivo(){
 	if(errores)
 		alert(sErrores);
 	else{
-		var sMensaje = "";
-        var oFormularios = document.frmAltaDispositivo;
-        var sMarca = oFormularios.marcaDispositivo.value.trim();
-        var sModelo = oFormularios.modeloDispositivo.value.trim();
-        var rGarantia = oFormularios.rbtGarantia.checked;
-        var dFechaEntrada = oFormularios.fechaEntradaDispositivo.value.trim();
-        var dFechaSalida = oFormularios.fechaSalidaDispositivo.value.trim();
-
-        var oDispositivos = new Dispositivo(sMarca, sModelo, rGarantia, new Date(dFechaEntrada), new Date(dFechaSalida));
+		var sMensaje = "";        
+        var rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;
+       
+        var oDispositivos = new Dispositivo(marca, modelo, rGarantia, new Date(fechaEntrada), new Date(fechaSalida));
         var bEncontrado = oSAT.altaDispositivos(oDispositivos);
         if (bEncontrado) {
             sMensaje = "Ese dispositivo ya existe.";
         } else {
             sMensaje = "Dispositivo registrado.";
-        }
-
-        oFormularios.style.display = "none";
-        oFormularios.reset();
+			document.frmAltaDispositivo.reset();
+        }		
         alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
 	}
-		//altaDispositivo		
-	
 }
 
 function validarModificarDispositivo(){
@@ -1304,19 +1361,30 @@ function validarModificarDispositivo(){
 	}
 	
 	if(!errores){
-	 if(fechaEntrada>=fechaSalida){
-		 errores = true;
-		 sErrores += "La fecha de entrada no puede ser posterior a la fecha de salida";	
-		document.frmModificarDispositivo.fechaSalidaDispositivo.style.background = "yellow"; //Marcar error	
-		document.frmModificarDispositivo.fechaEntradaDispositivo.style.background = "yellow"; //Marcar error		
-	 }
+		if(fechaEntrada>=fechaSalida){
+			errores = true;
+			sErrores += "La fecha de entrada no puede ser posterior a la fecha de salida";	
+			document.frmModificarDispositivo.fechaSalidaDispositivo.style.background = "yellow"; //Marcar error	
+			document.frmModificarDispositivo.fechaEntradaDispositivo.style.background = "yellow"; //Marcar error		
+		}
 	}
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modificar		
-	
+	else{
+		var sMensaje = "";        
+        var rGarantia = document.frmModificarDispositivo.rbtGarantia.checked;
+       
+        var oDispositivos = new Dispositivo(marca, modelo, rGarantia, new Date(fechaEntrada), new Date(fechaSalida));
+        var bEncontrado = oSAT.modificarDispositivos(oDispositivos);
+        if (bEncontrado) {
+            sMensaje = "Dispositivo modificado correctamente";
+			document.frmModificarDispositivo.reset();
+        } else {
+            sMensaje = "Dispositivo no registrado.";			
+        }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}			
 }
 
 function validarBajaDispositivo(){
@@ -1340,9 +1408,18 @@ function validarBajaDispositivo(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//altaDispositivo		
-	
+	else{
+		var sMensaje = "";        
+              
+        var bEncontrado = oSAT.bajaDispositivos(marca);
+        if (bEncontrado) {
+            sMensaje = "Dispositivo dado de baja";
+			document.frmBajaDispositivo.reset();
+        } else {
+            sMensaje = "Dispositivo no registrado.";			
+        }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}	
 }
 
 
@@ -1410,8 +1487,20 @@ function validarAltaReparacion(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//alta reparacion	
+	else{
+		var sMensaje = "";        
+        var dispositivo = document.frmAltaReparacion.repararDispositivo.value.trim();
+       
+        var oReparacion = new Reparacion(averia, estado, importe, comentarios);
+        var bEncontrado = oSAT.altaReparacion(oReparacion);
+        if (!bEncontrado) {
+            sMensaje = "Alta reparacion ok";
+			document.frmAltaReparacion.reset();
+        } else {
+            sMensaje = "reparacion ya registrada";			
+        }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarModificarReparacion(){
@@ -1478,35 +1567,34 @@ function validarModificarReparacion(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modificar
+	else{
+		var sMensaje = "";        
+        var dispositivo = document.frmModificarReparacion.repararDispositivo.value.trim();
+       
+        var oReparacion = new Reparacion(averia, estado, importe, comentarios);
+        var bEncontrado = oSAT.modificarReparacion(oReparacion);
+        if (bEncontrado) {
+            sMensaje = "Reparacion modificada correctamente";
+			document.frmModificarReparacion.reset();
+        } else {
+            sMensaje = "reparacion no encontrada";			
+        }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarBajaReparacion(){
-	//var dispositivo = document.frmBajaReparacion..value.trim();
-	var averia = document.frmBajaReparacion.averiaReparacion.value.trim();	
-	var errores = false;	
-	var expRegAveria = /^[a-zA-Z\s]{3,10}$/;
-			
-	//validaciones
-	var sErrores = "";
-
-	//Marca
-	if (expRegAveria.test(averia) == false){	
-		errores = true;				
-		document.frmAltaReparacion.averiaReparacion.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Averia debe contener entre 3 y 10 letras\n";				
-		document.frmAltaReparacion.averiaReparacion.style.background = "yellow"; //Marcar error
-	}
-	else { //Desmarcar error
-		document.frmAltaReparacion.averiaReparacion.style.background = "white";	
-	}
 	
-	
-	if(errores)
-		alert(sErrores);
-	else{}
-		//baja reparacion	
+	if(document.frmBajaReparacion.repararDispositivo.value.trim() != "Seleccione"){			      
+        var dispositivo = document.frmBajaReparacion.repararDispositivo.value.trim();
+       
+        var bEncontrado = oSAT.bajaReparacion(dispositivo);             
+		document.frmBajaReparacion.reset();        
+        alert("Reparacion eliminada correctamente");//aqui hay que hacer appenchild para mostrar el mensaje 
+	}
+	else{
+	 alert("Debe seleccionar un dispositivo");
+	}
 }
 
 
@@ -1628,13 +1716,23 @@ function validarAltaEmpleado(){
 	}
 	else {//Desmarcar error
 		document.frmAltaEmpleado.cargoEmpleado.style.background = "white";	
-	}
-		
+	}		
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//altaEmpleado
+	else{
+		var sMensaje = "";           
+       
+	    var oEmpleado = new Personal(nombre,apellido,nif,direccion,telefono,ivan,cargo)
+        var bEncontrado = oSAT.altaEmpleado(dispositivo);
+        if (bEncontrado) {
+            sMensaje = "Empleado registrado anteriormente";			
+        } else {
+            sMensaje = "Alta Empleado ok";		
+			document.frmAltaEmpleado.reset();
+        }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarModificarEmpleado(){	
@@ -1760,8 +1858,19 @@ function validarModificarEmpleado(){
 	
 	if(errores)
 		alert(sErrores);
-	else{}
-		//modificar
+	else{
+		var sMensaje = "";           
+       
+	    var oEmpleado = new Personal(nombre,apellido,nif,telefono,direccion,ivan,cargo)
+        var bEncontrado = oSAT.modificarEmpleado(oEMpleado);
+        if (bEncontrado) {
+            sMensaje = "Empleado modificado";
+			document.frmModificarEmpleado.reset();			
+        } else {
+            sMensaje = "Empleado no registrado";		
+	    }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarBajaEmpleado(){	
@@ -1786,8 +1895,18 @@ function validarBajaEmpleado(){
 		
 	if(errores)
 		alert(sErrores);
-	else{}
-		//baja
+	else{
+		var sMensaje = "";                  
+	    
+        var bEncontrado = oSAT.bajaEmpleado(nif);
+        if (bEncontrado) {
+            sMensaje = "Empleado eliminado";
+			document.frmBajaEmpleado.reset();			
+        } else {
+            sMensaje = "Empleado no registrado";		
+	    }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 
@@ -1855,8 +1974,19 @@ function validarAltaPago(){
 		
 	if(errores)
 		alert(sErrores);
-	else{}
-		//altaPago
+	else{
+		var sMensaje = "";           
+       
+	    var oPago = new Pago(importe,fechaEntrada,estado,asunto)
+        var bEncontrado = oSAT.pago(oPago);
+        if (bEncontrado) {
+            sMensaje = "Pago realizado anteriormente";						
+        } else {
+            sMensaje = "Pago realizado correctamente";	
+			document.frmPago.reset();			
+	    }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 function validarAltaCobro(){
@@ -1923,8 +2053,19 @@ function validarAltaCobro(){
 		
 	if(errores)
 		alert(sErrores);
-	else{}
-		//altaCobro
+	else{
+		var sMensaje = "";           
+       
+	    var oCobro = new Cobro(importe,fechaEntrada,estado,asunto)
+        var bEncontrado = oSAT.cobro(oCobro);
+        if (bEncontrado) {
+            sMensaje = "Cobro realizado anteriormente";						
+        } else {
+            sMensaje = "Cobro realizado correctamente";	
+			document.frmCobro.reset();			
+	    }		
+        alert(sMensaje);//aqui hay que hacer appenchild para mostrar el mensaje 
+	}		
 }
 
 // eventos botones volver
