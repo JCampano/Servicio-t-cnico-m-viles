@@ -1,4 +1,5 @@
 var oSAT = new SAT();
+cargaDatosDePrueba();
 //eventos botones menu
 document.getElementById("navAltaCliente").addEventListener("click", mostrarAltaCliente, false);
 document.getElementById("navBajaCliente").addEventListener("click", mostrarBajaCliente, false);
@@ -2226,8 +2227,25 @@ function volverCobro(){
 }
 
 
+//DATOS DE PRUEBA
+function cargaDatosDePrueba(){
+	//clientes
+		var oCliente = new Cliente("Pepe","Pepe","11111111a", "999999999", "aaa");
+		var cliente = oSAT.altaCliente(oCliente);
 
+		oCliente = new Cliente("Paco","Paco","22222222a", "999999999", "aaa");
+		cliente = oSAT.altaCliente(oCliente);
 
+		oCliente = new Cliente("Jose","Jose","33333333a", "999999999", "aaa");
+		cliente = oSAT.altaCliente(oCliente);	
+	
+	//dispositivos
+		var rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
+        var oDispositivos = new Dispositivo("Sony", "Z", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+        var dispositivo = oSAT.altaDispositivos(oDispositivos);
+		
+		
+}
 
 //quitar el div añadido por free icons
 var a =document.getElementsByTagName("div");
