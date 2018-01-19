@@ -329,6 +329,7 @@ function mostrarAltaDispositivo() {
 function mostrarBajaDispositivo() {
 	document.frmBajaDispositivo.reset();	
 	document.frmBajaDispositivo.marcaDispositivo.style.background = "white";
+	document.frmBajaDispositivo.modeloDispositivo.style.background = "white";
 	
 	document.getElementById('frmBajaDispositivo').style.display = "block";
     document.getElementById('frmAltaDispositivo').style.display = "none";
@@ -1253,7 +1254,7 @@ function validarAltaDispositivo(){
 	if (expRegFecha.test(fechaEntrada) == false){	
 		errores = true;				
 		document.frmAltaDispositivo.fechaEntradaDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Entrada  debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Entrada  debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmAltaDispositivo.fechaEntradaDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1264,7 +1265,7 @@ function validarAltaDispositivo(){
 	if (expRegFecha.test(fechaSalida) == false){	
 		errores = true;				
 		document.frmAltaDispositivo.fechaSalidaDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Salida debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Salida debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmAltaDispositivo.fechaSalidaDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1342,7 +1343,7 @@ function validarModificarDispositivo(){
 	if (expRegFecha.test(fechaEntrada) == false){	
 		errores = true;				
 		document.frmModificarDispositivo.fechaEntradaDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Entrada  debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Entrada  debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmModificarDispositivo.fechaEntradaDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1353,7 +1354,7 @@ function validarModificarDispositivo(){
 	if (expRegFecha.test(fechaSalida) == false){	
 		errores = true;				
 		document.frmModificarDispositivo.fechaSalidaDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Salida debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Salida debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmModificarDispositivo.fechaSalidaDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1389,8 +1390,10 @@ function validarModificarDispositivo(){
 
 function validarBajaDispositivo(){
 	var marca = document.frmBajaDispositivo.marcaDispositivo.value.trim();
+	var modelo = document.frmBajaDispositivo.modeloDispositivo.value.trim();
 	var errores = false;	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
+	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
 	
 	//validaciones
 	var sErrores = "";
@@ -1406,12 +1409,23 @@ function validarBajaDispositivo(){
 		document.frmBajaDispositivo.marcaDispositivo.style.background = "white";	
 	}
 	
+	//Modelo
+	if (expRegModelo.test(modelo) == false){	
+		errores = true;				
+		document.frmBajaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		document.frmBajaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
+	}
+	else { //Desmarcar error
+		document.frmBajaDispositivo.modeloDispositivo.style.background = "white";
+	}
+	
 	if(errores)
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
               
-        var bEncontrado = oSAT.bajaDispositivos(marca);
+        var bEncontrado = oSAT.bajaDispositivos(marca,modelo);
         if (bEncontrado) {
             sMensaje = "Dispositivo dado de baja";
 			document.frmBajaDispositivo.reset();
@@ -1942,7 +1956,7 @@ function validarAltaPago(){
 	if (expRegFecha.test(fechaEntrada) == false){	
 		errores = true;				
 		document.frmPago.fechaPago.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Entrada  debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Entrada  debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmPago.fechaPago.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -2021,7 +2035,7 @@ function validarAltaCobro(){
 	if (expRegFecha.test(fecha) == false){	
 		errores = true;				
 		document.frmCobro.fechaCobro.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Fecha Entrada  debe tener el sig formato DD/MM/AAAA\n";				
+		sErrores += "El campo Fecha Entrada  debe tener el sig formato AAAA-MM-DD\n";				
 		document.frmCobro.fechaCobro.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
