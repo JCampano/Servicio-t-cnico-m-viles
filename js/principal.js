@@ -481,8 +481,7 @@ function mostrarNuevoEmpleado() {
 	document.frmAltaEmpleado.nombreEmpleado.style.background = "white";
 	document.frmAltaEmpleado.apellidosEmpleado.style.background = "white";
 	document.frmAltaEmpleado.direccionEmpleado.style.background = "white";
-	document.frmAltaEmpleado.telefonoEmpleado.style.background = "white";
-	document.frmAltaEmpleado.emailEmpleado.style.background = "white";	
+	document.frmAltaEmpleado.telefonoEmpleado.style.background = "white";	
 	document.frmAltaEmpleado.ibanEmpleado.style.background = "white";
 	document.frmAltaEmpleado.cargoEmpleado.style.background = "white";		
 	
@@ -543,7 +542,6 @@ function mostrarModificarEmpleado() {
 	document.frmModificarEmpleado.apellidosEmpleado.style.background = "white";
 	document.frmModificarEmpleado.direccionEmpleado.style.background = "white";
 	document.frmModificarEmpleado.telefonoEmpleado.style.background = "white";
-	document.frmModificarEmpleado.emailEmpleado.style.background = "white";	
 	document.frmModificarEmpleado.ibanEmpleado.style.background = "white";
 	document.frmModificarEmpleado.cargoEmpleado.style.background = "white";	
 	
