@@ -161,4 +161,20 @@ class SAT {
 
         return bEncontrado;
     }
+
+    bajaDispositivos(marca, modelo)
+    {
+        var bEncontrado = false;
+        for (var i = 0; i < this._dispositivos.length && !bEncontrado; i++) {
+            if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo) {
+                bEncontrado = true;
+            }
+        }
+        if (bEncontrado) {
+            this._dispositivos.pop(new Dispositivo(marca, modelo, "hola", new Date(1995,11,17), new Date(1995,11,18)));
+        }
+
+        return bEncontrado;
+
+    }
 }
