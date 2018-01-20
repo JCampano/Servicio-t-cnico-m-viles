@@ -128,18 +128,22 @@ class SAT {
 		this._apuntes = [];//pagos y cobros
 		this._proveedores = [];
 		this._piezas = [];
-		this._dispositivos = [];
 		this._reparaciones = [];
     }
 
+    //CLIENTES
     altaCliente(oCliente){
 
         
         var esta=false;
 
         for (var i in this._personas ) {
-            if (oCliente.sDNI == this._personas[i].sDNI && this._personas[i] instanceof Cliente) {
+            if (oCliente.sDNI == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Cliente) {
                 esta=true;
+            }
+            else{
+                //el cliente existe pero esta inactivo
+                //cad="El cliente ya existe, pero esta inactivo";
             }
         }
         if (!esta) {
@@ -148,11 +152,17 @@ class SAT {
         return esta;
     }
 
+
+    //DISPOSITIVOS
     altaDispositivos(oDispositivos) {
         var bEncontrado = false;
-        for (var i = 0; i < this._dispositivos.length && !bEncontrado; i++) {
-            if (this._dispositivos[i].sModelo == oDispositivos.sModelo) {
+        for (var i in this._dispositivos) {
+            if (this._dispositivos[i].sMarca == oDispositivos.sMarca && this._dispositivos[i].sModelo == oDispositivos.sModelo && this._dispositivos[i].bActivo==true) {
                 bEncontrado = true;
+            }
+            else{
+                //el dispositivo existe pero esta inactivo (eliminado)
+               // cad="El dispositivo ya exite, pero esta inactivo";
             }
         }
         if (!bEncontrado) {
@@ -165,16 +175,120 @@ class SAT {
     bajaDispositivos(marca, modelo)
     {
         var bEncontrado = false;
-        for (var i = 0; i < this._dispositivos.length && !bEncontrado; i++) {
-            if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo) {
+        for (var i in this._dispositivos) {
+            if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo && this._dispositivos[i].bActivo == false) {
                 bEncontrado = true;
+                this._dispositivos[i].bActivo=false;
             }
-        }
-        if (bEncontrado) {
-            this._dispositivos.pop(new Dispositivo(marca, modelo, "hola", new Date(1995,11,17), new Date(1995,11,18)));
+            else{
+                //dispositivo ya inactivo
+                //cad="Dispositivo dado de baja anteriormente";
+            }
         }
 
         return bEncontrado;
 
+    }
+
+    //PIEZAS
+    altaPieza(oPieza)
+    {
+        var esta=false;
+
+        for (var i in this._piezas ) {
+            if (oPieza.id == this._piezas[i].id && this._piezas[i].bActivo==true) {
+                esta=true;
+            }
+            else{
+                //la pieza existe pero esta inactiva (eliminada)
+                //cad="La pieza ya exite, pero esta inactiva";
+            }
+        }
+        if (!esta) {
+            this._piezas.push(oPieza);
+        }
+        return esta;
+    }
+
+    bajaPieza(id)
+    {
+        var bEncontrado = false;
+        for (var i in this._piezas) {
+            if (this._piezas[i].sId == id && this._piezas[i].bActivo == true) {
+                bEncontrado = true;
+               this._piezas[i].bActivo=false;
+            }
+            else{
+                //ya esta la pieza inactiva
+                //cad="Pieza dada de baja anteriormente";
+            }
+        }
+
+        return bEncontrado;
+    }
+
+    modificarPieza(oPieza)
+    {
+        var bEncontrado = false;
+        for (var i in this._piezas) 
+        {
+             if (this._piezas[i].sId == oPieza.sId && this._piezas[i].bActivo == true) {
+                this._piezas[i].sTipo=oPieza.sTipo;
+                this._piezas[i].fPrecio=oPieza.fPrecio;
+                bEncontrado=true;
+             }
+        }
+        return bEncontrado;
+    }
+
+    //PROVEEDORES
+    altaProveedor(oProveedor)
+    {
+         var bEncontrado = false;
+        for (var i in this._proveedores) {
+            if (this._proveedores[i].sCIF == oProveedor.sCIF && this._proveedores[i].bActivo==true) {
+                bEncontrado = true;
+            }
+            else{
+                //el proveedor existe pero esta inactivo (eliminado)
+               // cad="El proveedor ya exite, pero esta inactivo";
+            }
+        }
+        if (!bEncontrado) {
+            this._proveedores.push(oProveedor);
+        }
+
+        return bEncontrado;
+    }
+
+    bajaProveedor(nif)
+    {
+        var bEncontrado = false;
+        for (var i in this._proveedores) {
+            if (this._proveedores[i].sCIF == nif && this._proveedores[i].bActivo == true) {
+                bEncontrado = true;
+               this._proveedores[i].bActivo=false;
+            }
+            else{
+                //ya esta el proveedor inactiva
+                //cad="Proveedor dado de baja anteriormente";
+            }
+        }
+
+        return bEncontrado;
+    }
+
+      modificarProveedor(oProveedor)
+    {
+        var bEncontrado = false;
+        for (var i in this._proveedores) 
+        {
+             if (this._proveedores[i].sCIF == oProveedor.sCIF && this._proveedores[i].bActivo == true) {
+                this._proveedores[i].sNombre=oProveedor.sNombre;
+                this._proveedores[i].sTipo=oProveedor.sTipo;
+                bEncontrado=true;
+             }
+        }
+        return bEncontrado;
     }
 }
