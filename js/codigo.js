@@ -106,17 +106,17 @@ Cobro.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
 }
 
-function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
+function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrada, fSalida) {
     this.sMarca = sMarca;
     this.sModelo = sModelo;
     this.dFechaCompra = dFechaCompra;
-    this.fEntrega = fEntrega;
+    this.fEntrada = fEntrada;
     this.fSalida = fSalida;
-	this.bActivo = false;
+	this.bActivo = true;
 }
 
 Dispositivo.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrega + "</td><td>" + this.fSalida + "</td></tr>";
+    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrada + "</td><td>" + this.fSalida + "</td></tr>";
 }
 
 
@@ -172,13 +172,31 @@ class SAT {
         return bEncontrado;
     }
 
+    modificarDispositivos(oDispositivos) {
+        var bEncontrado = false;
+        for (var i in this._dispositivos) {
+            if (this._dispositivos[i].sMarca == oDispositivos.sMarca && this._dispositivos[i].sModelo == oDispositivos.sModelo && this._dispositivos[i].bActivo==true) {
+                this._dispositivos[i].rGarantia=oDispositivos.rGarantia;
+                this._dispositivos[i].fechaEntrada=oDispositivos.fechaEntrada;
+                this._dispositivos[i].fechaSalida=oDispositivos.fechaSalida;
+                bEncontrado = true;
+
+            }
+            else{
+                //el dispositivo existe pero esta inactivo (eliminado)
+               // cad="El dispositivo ya exite, pero esta inactivo";
+            }
+        }
+        return bEncontrado;
+    }
+
     bajaDispositivos(marca, modelo)
     {
         var bEncontrado = false;
         for (var i in this._dispositivos) {
-            if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo && this._dispositivos[i].bActivo == false) {
+            if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo && this._dispositivos[i].bActivo == true) {
                 bEncontrado = true;
-                this._dispositivos[i].bActivo=true;
+                this._dispositivos[i].bActivo=false;
             }
             else{
                 //dispositivo ya inactivo
