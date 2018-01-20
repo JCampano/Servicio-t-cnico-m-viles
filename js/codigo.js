@@ -44,10 +44,10 @@ Persona.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
 }
 
-function Personal(sIBAN, bEncargado) {
+function Personal(sIBAN, sCargo) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
     this.sIBAN = sIBAN;
-    this.bEncargado = bEncargado;
+    this.sCargo = sCargo;
 	this.bActivo = true;
 }
 
@@ -55,7 +55,7 @@ Personal.prototype = Object.create(Persona.prototype);
 Personal.prototype.constructor = Personal;
 
 Personal.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td><td>" + this.sIBAN + "</td><td>" + this.bEncargado + "</td></tr>";
+    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td><td>" + this.sIBAN + "</td><td>" + this.sCargo + "</td></tr>";
 }
 
 function Cliente(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
@@ -106,17 +106,17 @@ Cobro.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
 }
 
-function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrada, fSalida) {
+function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
     this.sMarca = sMarca;
     this.sModelo = sModelo;
     this.dFechaCompra = dFechaCompra;
-    this.fEntrada = fEntrada;
+    this.fEntrega = fEntrega;
     this.fSalida = fSalida;
 	this.bActivo = true;
 }
 
 Dispositivo.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrada + "</td><td>" + this.fSalida + "</td></tr>";
+    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrega + "</td><td>" + this.fSalida + "</td></tr>";
 }
 
 
@@ -132,9 +132,8 @@ class SAT {
     }
 
     //CLIENTES
-    altaCliente(oCliente){
-
-        
+    altaCliente(oCliente)
+    {
         var esta=false;
 
         for (var i in this._personas ) {
@@ -150,6 +149,39 @@ class SAT {
             this._personas.push(oCliente);
         }
         return esta;
+    }
+
+    bajaCliente(nif)
+    {
+        var bEncontrado = false;
+        for (var i in this._personas) {
+            if (nif == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Cliente) {
+                bEncontrado = true;
+                this._personas[i].bActivo=false;
+            }
+            else{
+                //dispositivo ya inactivo
+                //cad="Dispositivo dado de baja anteriormente";
+            }
+        }
+
+        return bEncontrado;
+    }
+
+    modificarCliente(oCliente)
+    {
+          var bEncontrado = false;
+        for (var i in this._personas) 
+        {
+             if (oCliente.sDNI == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Cliente) {
+                this._personas[i].sNombre=oCliente.sNombre;
+                this._personas[i].sApellidos=oCliente.sApellidos;
+                this._personas[i].sDireccion=oCliente.sDireccion;
+                this._personas[i].sTelefono=oCliente.sTelefono;
+                bEncontrado=true;
+             }
+        }
+        return bEncontrado;
     }
 
 
@@ -169,24 +201,6 @@ class SAT {
             this._dispositivos.push(oDispositivos);
         }
 
-        return bEncontrado;
-    }
-
-    modificarDispositivos(oDispositivos) {
-        var bEncontrado = false;
-        for (var i in this._dispositivos) {
-            if (this._dispositivos[i].sMarca == oDispositivos.sMarca && this._dispositivos[i].sModelo == oDispositivos.sModelo && this._dispositivos[i].bActivo==true) {
-                this._dispositivos[i].rGarantia=oDispositivos.rGarantia;
-                this._dispositivos[i].fechaEntrada=oDispositivos.fechaEntrada;
-                this._dispositivos[i].fechaSalida=oDispositivos.fechaSalida;
-                bEncontrado = true;
-
-            }
-            else{
-                //el dispositivo existe pero esta inactivo (eliminado)
-               // cad="El dispositivo ya exite, pero esta inactivo";
-            }
-        }
         return bEncontrado;
     }
 
@@ -304,6 +318,61 @@ class SAT {
              if (this._proveedores[i].sCIF == oProveedor.sCIF && this._proveedores[i].bActivo == true) {
                 this._proveedores[i].sNombre=oProveedor.sNombre;
                 this._proveedores[i].sTipo=oProveedor.sTipo;
+                bEncontrado=true;
+             }
+        }
+        return bEncontrado;
+    }
+
+    //EMPLEADOS
+    altaEmpleado(oEmpleado)
+    {
+        var esta=false;
+
+        for (var i in this._personas ) {
+            if (oEmpleado.sDNI == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Personal) {
+                esta=true;
+            }
+            else{
+                //el cliente existe pero esta inactivo
+                //cad="El cliente ya existe, pero esta inactivo";
+            }
+        }
+        if (!esta) {
+            this._personas.push(oEmpleado);
+        }
+        return esta;
+    }
+
+      bajaEmpleado(nif)
+    {
+        var bEncontrado = false;
+        for (var i in this._personas) {
+            if (nif == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Personal) {
+                bEncontrado = true;
+                this._personas[i].bActivo=false;
+            }
+            else{
+                //dispositivo ya inactivo
+                //cad="Dispositivo dado de baja anteriormente";
+            }
+        }
+
+        return bEncontrado;
+    }
+
+    modificarEmpleado(oEmpleado)
+    {
+          var bEncontrado = false;
+        for (var i in this._personas) 
+        {
+             if (oEmpleado.sDNI == this._personas[i].sDNI && this._personas[i].bActivo==true && this._personas[i] instanceof Personal) {
+                this._personas[i].sNombre=oEmpleado.sNombre;
+                this._personas[i].sApellidos=oEmpleado.sApellidos;
+                this._personas[i].sDireccion=oEmpleado.sDireccion;
+                this._personas[i].sTelefono=oEmpleado.sTelefono;
+                this._personas[i].sIBAN=oEmpleado.sIBAN;
+                this._personas[i].sCargo=oEmpleado.sCargo;
                 bEncontrado=true;
              }
         }

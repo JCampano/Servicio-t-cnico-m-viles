@@ -1219,7 +1219,7 @@ function validarAltaDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
 	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
 
 	
@@ -1242,7 +1242,7 @@ function validarAltaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmAltaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
 		document.frmAltaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1308,8 +1308,8 @@ function validarModificarDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
-	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/;
+	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
 
 	
 	
@@ -1331,7 +1331,7 @@ function validarModificarDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmModificarDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
 		document.frmModificarDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1392,7 +1392,7 @@ function validarBajaDispositivo(){
 	var modelo = document.frmBajaDispositivo.modeloDispositivo.value.trim();
 	var errores = false;	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
 	
 	//validaciones
 	var sErrores = "";
@@ -1412,7 +1412,7 @@ function validarBajaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmBajaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
 		document.frmBajaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1736,8 +1736,8 @@ function validarAltaEmpleado(){
 	else{
 		var sMensaje = "";           
        
-	    var oEmpleado = new Personal(nombre,apellido,nif,direccion,telefono,ivan,cargo)
-        var bEncontrado = oSAT.altaEmpleado(dispositivo);
+	    var oEmpleado = new Personal(nombre,apellido,nif,direccion,telefono,iban,cargo)
+        var bEncontrado = oSAT.altaEmpleado(oEmpleado);
         if (bEncontrado) {
             sMensaje = "Empleado registrado anteriormente";			
         } else {
@@ -1874,7 +1874,7 @@ function validarModificarEmpleado(){
 	else{
 		var sMensaje = "";           
        
-	    var oEmpleado = new Personal(nombre,apellido,nif,telefono,direccion,ivan,cargo)
+	    var oEmpleado = new Personal(nombre,apellido,nif,telefono,direccion,iban,cargo)
         var bEncontrado = oSAT.modificarEmpleado(oEMpleado);
         if (bEncontrado) {
             sMensaje = "Empleado modificado";
