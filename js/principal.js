@@ -1242,7 +1242,7 @@ function validarAltaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmAltaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmAltaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1331,7 +1331,7 @@ function validarModificarDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmModificarDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmModificarDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1412,7 +1412,7 @@ function validarBajaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmBajaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmBajaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
