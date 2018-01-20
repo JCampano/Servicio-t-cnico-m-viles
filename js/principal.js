@@ -1219,7 +1219,7 @@ function validarAltaDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
 	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
 
 	
@@ -1308,8 +1308,8 @@ function validarModificarDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
-	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
+	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/;
 
 	
 	
@@ -1392,7 +1392,7 @@ function validarBajaDispositivo(){
 	var modelo = document.frmBajaDispositivo.modeloDispositivo.value.trim();
 	var errores = false;	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
 	
 	//validaciones
 	var sErrores = "";
