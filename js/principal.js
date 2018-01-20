@@ -1616,8 +1616,7 @@ function validarAltaEmpleado(){
 	var nombre = document.frmAltaEmpleado.nombreEmpleado.value.trim();
 	var apellidos = document.frmAltaEmpleado.apellidosEmpleado.value.trim();
 	var direccion = document.frmAltaEmpleado.direccionEmpleado.value.trim();
-	var telefono = document.frmAltaEmpleado.telefonoEmpleado.value.trim();
-	var email = document.frmAltaEmpleado.emailEmpleado.value.trim();	
+	var telefono = document.frmAltaEmpleado.telefonoEmpleado.value.trim();	
 	var iban = document.frmAltaEmpleado.ibanEmpleado.value.trim();
 	var cargo = document.frmAltaEmpleado.cargoEmpleado.value.trim();	
 	
@@ -1628,7 +1627,6 @@ function validarAltaEmpleado(){
 	var expRegApellidos = /^[a-zA-Z\s]{3,30}$/;
 	var expRegDireccion = /^[a-zA-Z0-9\s]{3,40}$/;
 	var expRegTelefono = /^([9|7|6]{1})[0-9]{8}$/;
-	var expRegEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 	var expRegIban = "";
 	var expRegCargo = /^[a-zA-Z\s]{3,20}$/;;
 
@@ -1695,18 +1693,6 @@ function validarAltaEmpleado(){
 	else {//Desmarcar error
 		document.frmAltaEmpleado.telefonoEmpleado.style.background = "white";	
 	}
-
-
-	//Email
-	if (expRegEmail.test(email) == false){
-		errores = true;				
-		document.frmAltaEmpleado.emailEmpleado.focus();	//Este campo obtiene el foco
-		sErrores += "El campo Email debe tener una cadena de caracteres, el caracter @ y otra cadena de caracteres\n ";		
-		document.frmAltaEmpleado.emailEmpleado.style.background = "yellow";//Marcar error
-	}
-	else {//Desmarcar error
-		document.frmAltaEmpleado.emailEmpleado.style.background = "white";	
-	}
 	/*
 	//iban
 	if (expRegIban.test(iban) == false){
@@ -1736,7 +1722,7 @@ function validarAltaEmpleado(){
 	else{
 		var sMensaje = "";           
        
-	    var oEmpleado = new Personal(nombre,apellido,nif,direccion,telefono,iban,cargo)
+	    var oEmpleado = new Personal(nombre,apellidos,nif,direccion,telefono,iban,cargo)
         var bEncontrado = oSAT.altaEmpleado(oEmpleado);
         if (bEncontrado) {
             sMensaje = "Empleado registrado anteriormente";			
@@ -1753,8 +1739,7 @@ function validarModificarEmpleado(){
 	var nombre = document.frmModificarEmpleado.nombreEmpleado.value.trim();
 	var apellidos = document.frmModificarEmpleado.apellidosEmpleado.value.trim();
 	var direccion = document.frmModificarEmpleado.direccionEmpleado.value.trim();
-	var telefono = document.frmModificarEmpleado.telefonoEmpleado.value.trim();
-	var email = document.frmModificarEmpleado.emailEmpleado.value.trim();	
+	var telefono = document.frmModificarEmpleado.telefonoEmpleado.value.trim();	
 	var iban = document.frmModificarEmpleado.ibanEmpleado.value.trim();
 	var cargo = document.frmModificarEmpleado.cargoEmpleado.value.trim();	
 	
@@ -1765,7 +1750,6 @@ function validarModificarEmpleado(){
 	var expRegApellidos = /^[a-zA-Z\s]{3,30}$/;
 	var expRegDireccion = /^[a-zA-Z0-9\s]{3,40}$/;
 	var expRegTelefono = /^([9|7|6]{1})[0-9]{8}$/;
-	var expRegEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 	var expRegIban = "";
 	var expRegCargo = /^[a-zA-Z\s]{3,20}$/;;
 
@@ -1833,17 +1817,6 @@ function validarModificarEmpleado(){
 		document.frmModificarEmpleado.telefonoEmpleado.style.background = "white";	
 	}
 
-
-	//Email
-	if (expRegEmail.test(email) == false){
-		errores = true;				
-		document.frmModificarEmpleado.emailEmpleado.focus();	//Este campo obtiene el foco
-		sErrores += "El campo Email debe tener una cadena de caracteres, el caracter @ y otra cadena de caracteres\n ";		
-		document.frmModificarEmpleado.emailEmpleado.style.background = "yellow";//Marcar error
-	}
-	else {//Desmarcar error
-		document.frmModificarEmpleado.emailEmpleado.style.background = "white";	
-	}
 	/*
 	//iban
 	if (expRegIban.test(iban) == false){
@@ -1874,8 +1847,8 @@ function validarModificarEmpleado(){
 	else{
 		var sMensaje = "";           
        
-	    var oEmpleado = new Personal(nombre,apellido,nif,telefono,direccion,iban,cargo)
-        var bEncontrado = oSAT.modificarEmpleado(oEMpleado);
+	    var oEmpleado = new Personal(nombre,apellidos,nif,telefono,direccion,iban,cargo)
+        var bEncontrado = oSAT.modificarEmpleado(oEmpleado);
         if (bEncontrado) {
             sMensaje = "Empleado modificado";
 			document.frmModificarEmpleado.reset();			

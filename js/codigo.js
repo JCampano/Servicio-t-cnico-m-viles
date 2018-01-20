@@ -44,7 +44,7 @@ Persona.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
 }
 
-function Personal(sIBAN, sCargo) {
+function Personal( sNombre, sApellidos, sDNI, sTelefono, sDireccion, sIBAN, sCargo) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
     this.sIBAN = sIBAN;
     this.sCargo = sCargo;
