@@ -1219,7 +1219,7 @@ function validarAltaDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
 	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
 
 	
@@ -1242,7 +1242,7 @@ function validarAltaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmAltaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmAltaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1308,7 +1308,7 @@ function validarModificarDispositivo(){
 	var errores = false;
 	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
 	var expRegFecha = /^\d{4}\-\d{2}\-\d{2}$/
 
 	
@@ -1331,7 +1331,7 @@ function validarModificarDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmModificarDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmModificarDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error
@@ -1392,7 +1392,7 @@ function validarBajaDispositivo(){
 	var modelo = document.frmBajaDispositivo.modeloDispositivo.value.trim();
 	var errores = false;	
 	var expRegMarca = /^[a-zA-Z\s]{3,10}$/;
-	var expRegModelo = /^[a-zA-Z\s]{3,20}$/;
+	var expRegModelo = /^[a-zA-Z0-9]{3,20}$/;
 	
 	//validaciones
 	var sErrores = "";
@@ -1412,7 +1412,7 @@ function validarBajaDispositivo(){
 	if (expRegModelo.test(modelo) == false){	
 		errores = true;				
 		document.frmBajaDispositivo.modeloDispositivo.focus(); //Este campo obtiene el foco		
-		sErrores += "El campo Modelo debe contener entre 3 y 20 letras\n";				
+		sErrores += "El campo Modelo debe contener entre 3 y 20 letras o números\n";
 		document.frmBajaDispositivo.modeloDispositivo.style.background = "yellow"; //Marcar error
 	}
 	else { //Desmarcar error

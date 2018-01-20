@@ -112,7 +112,7 @@ function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrega, fSalida) {
     this.dFechaCompra = dFechaCompra;
     this.fEntrega = fEntrega;
     this.fSalida = fSalida;
-	this.bActivo = true;
+	this.bActivo = false;
 }
 
 Dispositivo.prototype.toHTMLRow = function () {
@@ -178,7 +178,7 @@ class SAT {
         for (var i in this._dispositivos) {
             if (this._dispositivos[i].sMarca == marca && this._dispositivos[i].sModelo == modelo && this._dispositivos[i].bActivo == false) {
                 bEncontrado = true;
-                this._dispositivos[i].bActivo=false;
+                this._dispositivos[i].bActivo=true;
             }
             else{
                 //dispositivo ya inactivo
