@@ -415,6 +415,18 @@ function mostrarNuevaReparacion() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+    //Mostrar valores del select múltiple
+
+    var dispositivo = document.frmAltaReparacion.repararDispositivo;
+    var option=document.createElement("option");
+    for (var i in oSAT._dispositivos) {
+        if (oSAT._dispositivos[i].bActivo==true)
+            {
+        option.text=oSAT._dispositivos[i].sMarca + " " + oSAT._dispositivos[i].sModelo;
+        option.value=oSAT._dispositivos[i].sModelo;
+        dispositivo.appendChild(option);
+                }
+    }
 }
 
 function mostrarModificarReparacion() {
@@ -445,7 +457,19 @@ function mostrarModificarReparacion() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+
+    var dispositivo = document.frmAltaReparacion.repararDispositivo;
+    var option=document.createElement("option");
+    for (var i in oSAT._reparaciones) {
+        if (oSAT._reparaciones[i].bActivo==true)
+            {
+        option.text=oSAT._reparaciones[i].sMarca + " " + oSAT._reparaciones[i].sModelo;
+        option.value=oSAT._dispositivos[i].sModelo;
+        dispositivo.appendChild(option);
+            }
+    }
 }
+
 
 function mostrarBajaReparacion(){
 	document.frmBajaReparacion.reset();
@@ -471,7 +495,19 @@ function mostrarBajaReparacion(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+
+    var dispositivo = document.frmAltaReparacion.repararDispositivo;
+    var option=document.createElement("option");
+    for (var i in oSAT._reparaciones) {
+        if (oSAT._reparaciones[i].bActivo==true)
+            {
+        option.text=oSAT._reparaciones[i].sMarca + " " + oSAT._reparaciones[i].sModelo;
+        option.value=oSAT._dispositivos[i].sModelo;
+        dispositivo.appendChild(option);
+            }
+    }
 }
+
 
 
 
@@ -1437,7 +1473,6 @@ function validarBajaDispositivo(){
 
 
 function validarAltaReparacion(){
-	//var dispositivo = document.frmAltaReparacion..value.trim();
 	var averia = document.frmAltaReparacion.averiaReparacion.value.trim();
 	var estado = document.frmAltaReparacion.estadoReparacion.value.trim();
 	var importe = document.frmAltaReparacion.importeReparacion.value.trim();
@@ -1502,9 +1537,8 @@ function validarAltaReparacion(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var dispositivo = document.frmAltaReparacion.repararDispositivo.value.trim();
-       
-        var oReparacion = new Reparacion(averia, estado, importe, comentarios);
+        var sModelo = document.frmAltaReparacion.repararDispositivo.value.trim();
+        var oReparacion = new Reparacion(sModelo, averia, estado, importe, comentarios);
         var bEncontrado = oSAT.altaReparacion(oReparacion);
         if (!bEncontrado) {
             sMensaje = "Alta reparacion ok";
@@ -1517,7 +1551,6 @@ function validarAltaReparacion(){
 }
 
 function validarModificarReparacion(){
-	//var dispositivo = document.frmModificarReparacion..value.trim();
 	var averia = document.frmModificarReparacion.averiaReparacion.value.trim();
 	var estado = document.frmModificarReparacion.estadoReparacion.value.trim();
 	var importe = document.frmModificarReparacion.importeReparacion.value.trim();
@@ -1582,9 +1615,9 @@ function validarModificarReparacion(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var dispositivo = document.frmModificarReparacion.repararDispositivo.value.trim();
+        var sModelo = document.frmModificarReparacion.repararDispositivo.value.trim();
        
-        var oReparacion = new Reparacion(averia, estado, importe, comentarios);
+        var oReparacion = new Reparacion(sModelo, averia, estado, importe, comentarios);
         var bEncontrado = oSAT.modificarReparacion(oReparacion);
         if (bEncontrado) {
             sMensaje = "Reparacion modificada correctamente";

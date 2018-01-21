@@ -367,5 +367,31 @@ class SAT {
         return bEncontrado;
     }
 
+    altaReparacion(oReparacion)
+    {
+        var bEncontrado = false;
+        for (var i in this._reparaciones) {
+            if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
+                bEncontrado = true;
+            } else {
+                this._reparaciones.push(oReparacion);
+            }
+        }
+        return bEncontrado;
+    }
+
+    modificarReparacion(oReparacion)
+    {
+        var bEncontrado = false;
+        for (var i in this._reparaciones) {
+            if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
+                bEncontrado = true;
+                this._reparaciones.pop(oReparacion);
+                this._reparaciones.push(oReparacion);
+            }
+        }
+        return bEncontrado;
+    }
+
 
 }
