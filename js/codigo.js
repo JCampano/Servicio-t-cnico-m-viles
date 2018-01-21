@@ -366,4 +366,6 @@ class SAT {
         }
         return bEncontrado;
     }
+
+
 }
