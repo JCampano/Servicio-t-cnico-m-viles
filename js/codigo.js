@@ -20,7 +20,8 @@ Pieza_Repuesto.prototype.toHTMLRow = function () {
     return "<tr><td>" + this.sTipo + "</td><td>" + this.fPrecio + "</td><td>" + this.sId + "</td></tr>";
 }
 
-function Reparacion(sAveria, sEstado, fImportePresupuestado, sComentarios) {
+function Reparacion(sModelo, sAveria, sEstado, fImportePresupuestado, sComentarios) {
+    this.sModelo = sModelo;
     this.sAveria = sAveria;
     this.sEstado = sEstado;
     this.fImportePresupuestado = fImportePresupuestado;

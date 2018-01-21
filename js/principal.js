@@ -1537,8 +1537,8 @@ function validarAltaReparacion(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var sModelo = document.frmAltaReparacion.repararDispositivo.value.trim();
-        var oReparacion = new Reparacion(sModelo, averia, estado, importe, comentarios);
+        var modelo = document.frmAltaReparacion.repararDispositivo.value.trim();
+        var oReparacion = new Reparacion(modelo, averia, estado, importe, comentarios);
         var bEncontrado = oSAT.altaReparacion(oReparacion);
         if (!bEncontrado) {
             sMensaje = "Alta reparacion ok";
@@ -1615,9 +1615,9 @@ function validarModificarReparacion(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var sModelo = document.frmModificarReparacion.repararDispositivo.value.trim();
+        var v = document.frmModificarReparacion.repararDispositivo.value.trim();
        
-        var oReparacion = new Reparacion(sModelo, averia, estado, importe, comentarios);
+        var oReparacion = new Reparacion(modelo, averia, estado, importe, comentarios);
         var bEncontrado = oSAT.modificarReparacion(oReparacion);
         if (bEncontrado) {
             sMensaje = "Reparacion modificada correctamente";
