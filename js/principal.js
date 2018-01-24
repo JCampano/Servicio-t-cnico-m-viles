@@ -458,12 +458,19 @@ function mostrarModificarReparacion() {
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
 
-    var dispositivo = document.frmModificarReparacion.repararDispositivo;
+      var dispositivo = document.frmModificarReparacion.repararDispositivo;
+	for(var i =  dispositivo.lenght ; i >1 ; i--){
+		dispositivo.remove(dispositivo[i]);
+	}
+	
+	
     var option=document.createElement("option");
-    for (var i in oSAT._reparaciones) {
-        option.text=oSAT._reparaciones[i].sMarca + " " + oSAT._reparaciones[i].sModelo;
-        option.value=oSAT._reparaciones[i].sModelo;
-        dispositivo.appendChild(option);
+    for (var i in oSAT._reparaciones){
+		 if (oSAT._reparaciones[i].bActivo==true){
+			option.text=oSAT._reparaciones[i].sModelo;
+			option.value=oSAT._reparaciones[i].sModelo;
+			dispositivo.appendChild(option);
+		 }
     }
 }
 

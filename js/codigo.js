@@ -375,9 +375,13 @@ class SAT {
             if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
                 bEncontrado = true;
             } else {
-                this._reparaciones.push(oReparacion);
+                // ya inactivo
+                //cad=" dado de baja anteriormente";
             }
         }
+		if (!bEncontrado) {
+            this._reparaciones.push(oReparacion);
+		}
         return bEncontrado;
     }
 
