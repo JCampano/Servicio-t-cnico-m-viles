@@ -393,6 +393,7 @@ function mostrarNuevaReparacion() {
 	document.frmAltaReparacion.estadoReparacion.style.background = "white";	
 	document.frmAltaReparacion.importeReparacion.style.background = "white";
 	document.frmAltaReparacion.comentarioReparacion.style.background = "white";	
+	document.frmAltaReparacion.repararDispositivo.style.background = "white";
 	
     document.getElementById('frmAltaReparacion').style.display = "block";
     document.getElementById('frmAltaDispositivo').style.display = "none";
@@ -438,6 +439,8 @@ function mostrarModificarReparacion() {
 	document.frmModificarReparacion.estadoReparacion.style.background = "white";	
 	document.frmModificarReparacion.importeReparacion.style.background = "white";
 	document.frmModificarReparacion.comentarioReparacion.style.background = "white";	
+	document.frmModificarReparacion.repararDispositivo.style.background = "white";
+
 	
 	document.getElementById('frmModificarReparacion').style.display = "block";
     document.getElementById('frmAltaReparacion').style.display = "none";
@@ -461,13 +464,12 @@ function mostrarModificarReparacion() {
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
    
+   //carga combo reparacion
 	var dispositivo = document.frmModificarReparacion.repararDispositivo;
 	for(var e =dispositivo.length ; e>1 ; e--){
 		dispositivo.removeChild(dispositivo.lastChild);
 	}
 	
-	
-
     for (var i in oSAT._reparaciones){
 		 if (oSAT._reparaciones[i].bActivo==true){
 			var option=document.createElement("option");
@@ -478,9 +480,9 @@ function mostrarModificarReparacion() {
     }
 }
 
-
 function mostrarBajaReparacion(){
 	document.frmBajaReparacion.reset();
+	document.frmBajaReparacion.repararDispositivo.style.background = "white";
 		
 	document.getElementById('frmBajaReparacion').style.display = "block";
 	document.getElementById('frmModificarReparacion').style.display = "none";
@@ -504,13 +506,20 @@ function mostrarBajaReparacion(){
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
 
-    var dispositivo = document.frmBajaReparacion.repararDispositivo;
-    var option=document.createElement("option");
-    for (var i in oSAT._reparaciones) {
-        option.text=oSAT._reparaciones[i].sMarca + " " + oSAT._reparaciones[i].sModelo;
-        option.value=oSAT._reparaciones[i].sModelo;
-        dispositivo.appendChild(option);
-    }
+	//carga combo reparacion
+   var dispositivo = document.frmBajaReparacion.repararDispositivo;
+	for(var e =dispositivo.length ; e>1 ; e--){
+		dispositivo.removeChild(dispositivo.lastChild);
+	}	
+
+    for (var i in oSAT._reparaciones){
+		 if (oSAT._reparaciones[i].bActivo==true){
+			var option=document.createElement("option");
+			option.text=oSAT._reparaciones[i].sModelo;
+			option.value=oSAT._reparaciones[i].sModelo;
+			dispositivo.appendChild(option);
+		 }
+    }    
 }
 
 
@@ -617,6 +626,8 @@ function mostrarNuevoPago() {
 	document.frmPago.fechaPago.style.background = "white";	
 	document.frmPago.estadoPago.style.background = "white";	
 	document.frmPago.asuntoPago.style.background = "white";	
+	document.frmPago.frmPagoSelectProveedor.style.background = "white";
+	document.frmPago.frmPagoSelectEmpleado.style.background = "white";
 	
     document.getElementById('frmPago').style.display = "block";
     document.getElementById('frmAltaEmpleado').style.display = "none";
@@ -639,6 +650,38 @@ function mostrarNuevoPago() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	
+	//cargar combo empleado
+	var empleado = document.frmPago.frmPagoSelectEmpleado;
+	for(var e =empleado.length ; e>1 ; e--){
+		empleado.removeChild(empleado.lastChild);
+	}
+	
+   for (var i in oSAT._personas) {
+        if (oSAT._personas[i].bActivo==true && oSAT._personas[i] instanceof Personal){
+			var option=document.createElement("option");
+			option.text=oSAT._personas[i].sNombre + " " + oSAT._personas[i].sApellidos;
+			option.value=oSAT._personas[i].sDNI;
+			empleado.appendChild(option);
+        }
+    }
+	
+	//cargar combo proveedor
+	var proveedor = document.frmPago.frmPagoSelectProveedor;
+	for(var e =proveedor.length ; e>1 ; e--){
+		proveedor.removeChild(proveedor.lastChild);
+	}
+	
+   for (var i in oSAT._proveedores) {
+        if (oSAT._proveedores[i].bActivo==true){
+			var option=document.createElement("option");
+			option.text=oSAT._proveedores[i].sNombre + " " + oSAT._proveedores[i].sTipo;
+			option.value=oSAT._proveedores[i].sCIF;
+			proveedor.appendChild(option);
+        }
+    }
+	
+	
 }
 
 function mostrarNuevoCobro() {
@@ -647,6 +690,8 @@ function mostrarNuevoCobro() {
 	document.frmCobro.fechaCobro.style.background = "white";	
 	document.frmCobro.estadoCobro.style.background = "white";	
 	document.frmCobro.asuntoCobro.style.background = "white";	
+	document.frmCobro.frmCobroSelectCliente.style.background = "white";
+	document.frmCobro.frmCobroSelectEmpleado.style.background = "white";
 	
     document.getElementById('frmCobro').style.display = "block";
     document.getElementById('frmPago').style.display = "none";
@@ -669,6 +714,40 @@ function mostrarNuevoCobro() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	
+	//cargar combo empleado
+	var empleado = document.frmCobro.frmCobroSelectEmpleado;
+	for(var e =empleado.length ; e>1 ; e--){
+		empleado.removeChild(empleado.lastChild);
+	}
+	
+   for (var i in oSAT._personas) {
+        if (oSAT._personas[i].bActivo==true && oSAT._personas[i] instanceof Personal){
+			var option=document.createElement("option");
+			option.text=oSAT._personas[i].sNombre + " " + oSAT._personas[i].sApellidos;
+			option.value=oSAT._personas[i].sDNI;
+			empleado.appendChild(option);
+        }
+    }
+	
+	//cargar combo Cliente
+	var cliente = document.frmCobro.frmCobroSelectCliente;
+	for(var e =cliente.length ; e>1 ; e--){
+		cliente.removeChild(cliente.lastChild);
+	}
+	
+   for (var i in oSAT._personas) {
+        if (oSAT._personas[i].bActivo==true && oSAT._personas[i] instanceof Cliente){
+			var option=document.createElement("option");
+			option.text=oSAT._personas[i].sNombre + " " + oSAT._personas[i].sApellidos;
+			option.value=oSAT._personas[i].sDNI;
+			cliente.appendChild(option);
+        }
+    }
+	
+	
+	
+	
 }
 
 
@@ -1493,7 +1572,15 @@ function validarAltaReparacion(){
 	
 	//validaciones
 	var sErrores = "";
-
+	
+	if(document.frmAltaReparacion.repararDispositivo.value =="Lista de dispositivos"){
+		sErrores += "Debe seleccionar 1 dispositivo\n";
+		document.frmAltaReparacion.repararDispositivo.style.background = "yellow";
+	}
+	else{
+		document.frmAltaReparacion.repararDispositivo.style.background = "white";
+	}
+	
 	//Marca
 	if (expRegAveria.test(averia) == false){	
 		errores = true;				
@@ -1536,7 +1623,7 @@ function validarAltaReparacion(){
 	}
 	else { //Desmarcar error
 		document.frmAltaReparacion.comentarioReparacion.style.background = "white";	
-	}	
+	}		
 	
 	if(errores)
 		alert(sErrores);
@@ -1571,7 +1658,15 @@ function validarModificarReparacion(){
 	
 	//validaciones
 	var sErrores = "";
-
+	
+	if(document.frmModificarReparacion.repararDispositivo.value =="Lista de dispositivos en reparación"){
+		sErrores += "Debe seleccionar 1 reparacion\n";
+		document.frmModificarReparacion.repararDispositivo.style.background = "yellow";
+	}
+	else{
+		document.frmModificarReparacion.repararDispositivo.style.background = "white";
+	}
+	
 	//Marca
 	if (expRegAveria.test(averia) == false){	
 		errores = true;				
@@ -1636,15 +1731,16 @@ function validarModificarReparacion(){
 
 function validarBajaReparacion(){
 	
-	if(document.frmBajaReparacion.repararDispositivo.value.trim() != "Seleccione"){			      
+	if(document.frmBajaReparacion.repararDispositivo.value.trim() != "Lista de dispositivos en reparación"){			      
         var dispositivo = document.frmBajaReparacion.repararDispositivo.value.trim();
-       
+       document.frmBajaReparacion.repararDispositivo.style.background = "white";
         var bEncontrado = oSAT.bajaReparacion(dispositivo);             
 		document.frmBajaReparacion.reset();        
         alert("Reparacion eliminada correctamente");//aqui hay que hacer appenchild para mostrar el mensaje 
 	}
 	else{
-	 alert("Debe seleccionar un dispositivo");
+	 alert("Debe seleccionar una reparación");
+	 document.frmBajaReparacion.repararDispositivo.style.background = "yellow";
 	}
 }
 
@@ -1665,7 +1761,7 @@ function validarAltaEmpleado(){
 	var expRegApellidos = /^[a-zA-Z\s]{3,30}$/;
 	var expRegDireccion = /^[a-zA-Z0-9\s]{3,40}$/;
 	var expRegTelefono = /^([9|7|6]{1})[0-9]{8}$/;
-	var expRegIban = "";
+	var expRegIban = /^\d{4}\w$/;
 	var expRegCargo = /^[a-zA-Z\s]{3,20}$/;;
 
 	
@@ -1731,17 +1827,17 @@ function validarAltaEmpleado(){
 	else {//Desmarcar error
 		document.frmAltaEmpleado.telefonoEmpleado.style.background = "white";	
 	}
-	/*
+	
 	//iban
 	if (expRegIban.test(iban) == false){
 		errores = true;				
 		document.frmAltaEmpleado.ibanEmpleado.focus();	//Este campo obtiene el foco
-		sErrores += " ";		
+		sErrores += " El campo iban debe contener 4 numeros y 1 letra\n";		
 		document.frmAltaEmpleado.ibanEmpleado.style.background = "yellow";//Marcar error
 	}
 	else {//Desmarcar error
 		document.frmAltaEmpleado.ibanEmpleado.style.background = "white";	
-	}*/
+	}
 
 
 	//Cargo
@@ -1788,7 +1884,7 @@ function validarModificarEmpleado(){
 	var expRegApellidos = /^[a-zA-Z\s]{3,30}$/;
 	var expRegDireccion = /^[a-zA-Z0-9\s]{3,40}$/;
 	var expRegTelefono = /^([9|7|6]{1})[0-9]{8}$/;
-	var expRegIban = "";
+	var expRegIban = /^\d{4}\w$/;
 	var expRegCargo = /^[a-zA-Z\s]{3,20}$/;;
 
 	
@@ -1855,17 +1951,17 @@ function validarModificarEmpleado(){
 		document.frmModificarEmpleado.telefonoEmpleado.style.background = "white";	
 	}
 
-	/*
+	
 	//iban
 	if (expRegIban.test(iban) == false){
 		errores = true;				
 		document.frmModificarEmpleado.ibanEmpleado.focus();	//Este campo obtiene el foco
-		sErrores += " ";		
+		sErrores += "El campo iban debe contener 4 números y 1 letra\n ";		
 		document.frmModificarEmpleado.ibanEmpleado.style.background = "yellow";//Marcar error
 	}
 	else {//Desmarcar error
 		document.frmModificarEmpleado.ibanEmpleado.style.background = "white";	
-	}*/
+	}
 
 
 	//Cargo
@@ -1949,7 +2045,21 @@ function validarAltaPago(){
 	
 	//validaciones
 	var sErrores = "";
+	if(document.frmPago.frmPagoSelectProveedor.value == "Seleccione 1 Proveedor"){
+		document.frmPago.frmPagoSelectProveedor.style.background = "yellow";
+		sErrores += "Debe seleccionar 1 Proveedor\n"
+	}
+	else{
+		document.frmPago.frmPagoSelectProveedor.style.background = "white";
+	}
 	
+	if(document.frmPago.frmPagoSelectEmpleado.value == "Seleccione 1 Empleado"){
+		document.frmPago.frmPagoSelectEmpleado.style.background = "yellow";
+		sErrores += "Debe seleccionar 1 Empleado\n"
+	}
+	else{
+		document.frmPago.frmPagoSelectEmpleado.style.background = "white";
+	}
 	
 	//NIF
 	if (expRegImporte.test(importe) == false){		
@@ -2029,6 +2139,21 @@ function validarAltaCobro(){
 	//validaciones
 	var sErrores = "";
 	
+	if(document.frmCobro.frmCobroSelectCliente.value == "Seleccione 1 Cliente"){
+		document.frmCobro.frmCobroSelectCliente.style.background = "yellow";
+		sErrores += "Debe seleccionar 1 Cliente\n"
+	}
+	else{
+		document.frmCobro.frmCobroSelectCliente.style.background = "white";
+	}
+	
+	if(document.frmCobro.frmCobroSelectEmpleado.value == "Seleccione 1 Empleado"){
+		document.frmCobro.frmCobroSelectEmpleado.style.background = "yellow";
+		sErrores += "Debe seleccionar 1 Empleado\n"
+	}
+	else{
+		document.frmCobro.frmPagoSelectEmpleado.style.background = "white";
+	}
 	
 	//NIF
 	if (expRegImporte.test(importe) == false){		
