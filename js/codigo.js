@@ -5,19 +5,11 @@ function Proveedor(sTipo, sNombre, sCIF) {
     this.bActivo = true;
 }
 
-Proveedor.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sTipo + "</td><td>" + this.sNombre + "</td><td>" + this.sCIF + "</td></tr>";
-}
-
 function Pieza_Repuesto(sTipo, fPrecio, sId) {
     this.sTipo = sTipo;
     this.fPrecio = fPrecio;
     this.sId = sId;
     this.bActivo = true;
-}
-
-Pieza_Repuesto.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sTipo + "</td><td>" + this.fPrecio + "</td><td>" + this.sId + "</td></tr>";
 }
 
 function Reparacion(sModelo, sAveria, sEstado, fImportePresupuestado, sComentarios) {
@@ -29,20 +21,12 @@ function Reparacion(sModelo, sAveria, sEstado, fImportePresupuestado, sComentari
     this.bActivo = true;
 }
 
-Reparacion.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sAveria + "</td><td>" + this.sEstado + "</td><td>" + this.fImportePresupuestado + "</td><td>" + this.sComentarios + "</td></tr>";
-}
-
 function Persona(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
     this.sNombre = sNombre;
     this.sApellidos = sApellidos;
     this.sDNI = sDNI;
     this.sTelefono = sTelefono;
     this.sDireccion = sDireccion;
-}
-
-Persona.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
 }
 
 function Personal(sNombre, sApellidos, sDNI, sTelefono, sDireccion, sIBAN, sCargo) {
@@ -55,10 +39,6 @@ function Personal(sNombre, sApellidos, sDNI, sTelefono, sDireccion, sIBAN, sCarg
 Personal.prototype = Object.create(Persona.prototype);
 Personal.prototype.constructor = Personal;
 
-Personal.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td><td>" + this.sIBAN + "</td><td>" + this.sCargo + "</td></tr>";
-}
-
 function Cliente(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
     this.bActivo = true;
@@ -67,20 +47,12 @@ function Cliente(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
 Cliente.prototype = Object.create(Persona.prototype);
 Cliente.prototype.constructor = Cliente;
 
-Cliente.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
-}
-
 function Apunte(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado) {
     this.fImporte = fImporte;
     this.fVencimiento = fVencimiento;
     this.bEstado = bEstado;
     this.sAsunto = sAsunto;
     this.sNifEmpleado = sNifEmpleado;
-}
-
-Apunte.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
 }
 
 function Pago(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifProveedor) {
@@ -91,10 +63,6 @@ function Pago(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifProvee
 Pago.prototype = Object.create(Apunte.prototype);
 Pago.prototype.constructor = Pago;
 
-Pago.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
-}
-
 function Cobro(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifCliente) {
     Apunte.call(this, fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado);
     this.sNifCliente = sNifCliente;
@@ -103,9 +71,6 @@ function Cobro(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifClien
 Cobro.prototype = Object.create(Apunte.prototype);
 Cobro.prototype.constructor = Cobro;
 
-Cobro.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
-}
 
 function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrada, fSalida) {
     this.sMarca = sMarca;
@@ -114,10 +79,6 @@ function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrada, fSalida) {
     this.fEntrada = fEntrada;
     this.fSalida = fSalida;
     this.bActivo = true;
-}
-
-Dispositivo.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrada + "</td><td>" + this.fSalida + "</td></tr>";
 }
 
 
@@ -372,7 +333,7 @@ class SAT {
     {
         var bEncontrado = false;
         for (var i in this._reparaciones) {
-            if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
+            if (this._reparaciones[i].sModelo == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
                 bEncontrado = true;
             } else {
                 // ya inactivo
@@ -389,10 +350,26 @@ class SAT {
     {
         var bEncontrado = false;
         for (var i in this._reparaciones) {
-            if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
+            if (this._reparaciones[i].sModelo == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
+                this._reparaciones[i].sAveria = oReparacion.sAveria;
+                this._reparaciones[i].sEstado = oReparacion.sEstado;
+                this._reparaciones[i].fImportePresupuestado = oReparacion.fImportePresupuestado;
+                this._reparaciones[i].sEstado = oReparacion.sEstado;
+                this._reparaciones[i].sComentarios = oReparacion.sComentarios;
                 bEncontrado = true;
-                this._reparaciones.pop(oReparacion);
-                this._reparaciones.push(oReparacion);
+            }
+        }
+        return bEncontrado;
+    }
+
+    bajaReparacion(oReparacion)
+    {
+         var bEncontrado = false;
+
+        for (var i in this._reparaciones) {
+            if (this._reparaciones[i].sModelo == oReparacion.split(" ")[oReparacion.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
+                bEncontrado = true;
+                this._reparaciones[i].bActivo=false;
             }
         }
         return bEncontrado;
