@@ -418,14 +418,17 @@ function mostrarNuevaReparacion() {
     //Mostrar valores del select múltiple
 
     var dispositivo = document.frmAltaReparacion.repararDispositivo;
-    var option=document.createElement("option");
-    for (var i in oSAT._dispositivos) {
-        if (oSAT._dispositivos[i].bActivo==true)
-            {
-        option.text=oSAT._dispositivos[i].sMarca + " " + oSAT._dispositivos[i].sModelo;
-        option.value=oSAT._dispositivos[i].sModelo;
-        dispositivo.appendChild(option);
-                }
+	for(var e =dispositivo.length ; e>1 ; e--){
+		dispositivo.removeChild(dispositivo.lastChild);
+	}
+	
+   for (var i in oSAT._dispositivos) {
+        if (oSAT._dispositivos[i].bActivo==true){
+			var option=document.createElement("option");
+			option.text=oSAT._dispositivos[i].sMarca + " " + oSAT._dispositivos[i].sModelo;
+			option.value=oSAT._dispositivos[i].sModelo;
+			dispositivo.appendChild(option);
+        }
     }
 }
 
@@ -457,16 +460,17 @@ function mostrarModificarReparacion() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
-
-      var dispositivo = document.frmModificarReparacion.repararDispositivo;
-	for(var i =  dispositivo.lenght ; i >1 ; i--){
-		dispositivo.remove(dispositivo[i]);
+   
+	var dispositivo = document.frmModificarReparacion.repararDispositivo;
+	for(var e =dispositivo.length ; e>1 ; e--){
+		dispositivo.removeChild(dispositivo.lastChild);
 	}
 	
 	
-    var option=document.createElement("option");
+
     for (var i in oSAT._reparaciones){
 		 if (oSAT._reparaciones[i].bActivo==true){
+			var option=document.createElement("option");
 			option.text=oSAT._reparaciones[i].sModelo;
 			option.value=oSAT._reparaciones[i].sModelo;
 			dispositivo.appendChild(option);
@@ -2249,7 +2253,13 @@ function cargaDatosDePrueba(){
         var oDispositivos = new Dispositivo("Sony", "Z", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
         var dispositivo = oSAT.altaDispositivos(oDispositivos);
 		
+		rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
+        oDispositivos = new Dispositivo("Sangsum", "x", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+        dispositivo = oSAT.altaDispositivos(oDispositivos);
 		
+		rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
+        oDispositivos = new Dispositivo("Lg", "3310", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+        dispositivo = oSAT.altaDispositivos(oDispositivos);
 }
 
 //quitar el div añadido por free icons
