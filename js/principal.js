@@ -2242,11 +2242,43 @@ function cargaDatosDePrueba(){
 		var oCliente = new Cliente("Pepe","Pepe","11111111a", "999999999", "aaa");
 		var cliente = oSAT.altaCliente(oCliente);
 
-		oCliente = new Cliente("Paco","Paco","22222222a", "999999999", "aaa");
+		oCliente = new Cliente("Paco","Paco","11111111b", "999999999", "aaa");
 		cliente = oSAT.altaCliente(oCliente);
 
-		oCliente = new Cliente("Jose","Jose","33333333a", "999999999", "aaa");
+		oCliente = new Cliente("Jose","Jose","11111111c", "999999999", "aaa");
 		cliente = oSAT.altaCliente(oCliente);	
+		
+		
+	//Empleados
+		var oEmpleado = new Personal("Antonio","antonio","22222222a", "987654321", "*******", "pringado");
+		var empleado = oSAT.altaEmpleado(oEmpleado);
+		
+		oEmpleado = new Personal("Margarito","Mariposillo","22222222b", "987654321", "*******", "lerdo");
+		empleado = oSAT.altaEmpleado(oEmpleado);
+		
+		oEmpleado = new Personal("Antonieta","Fat","22222222c", "987654321", "*******", "ZampaBollos");
+		empleado = oSAT.altaEmpleado(oEmpleado);
+
+		
+	//Proveedor
+		var oProveedor = new Proveedor("Negro","Zacarias","33333333a");
+		var proveedor = oSAT.altaProveedor(oProveedor);
+		
+		oProveedor = new Proveedor("Blanco","ErBraian","33333333b");
+		proveedor = oSAT.altaProveedor(oProveedor);
+		
+		oProveedor = new Proveedor("Amarillo","Chen Li","33333333c");
+		proveedor = oSAT.altaProveedor(oProveedor);
+		
+	//Piezas
+		var oPieza = new Pieza_Repuesto("Grande","Bateria","1111");
+		var pieza = oSAT.altaPieza(oPieza);
+		
+		oPieza = new Pieza_Repuesto("Mediana","Bateria","1112");
+		pieza = oSAT.altaPieza(oPieza);
+		
+		oPieza = new Pieza_Repuesto("Pequeña","Bateria","1113");
+		pieza = oSAT.altaPieza(oPieza);
 	
 	//dispositivos
 		var rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
@@ -2260,6 +2292,28 @@ function cargaDatosDePrueba(){
 		rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
         oDispositivos = new Dispositivo("Lg", "3310", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
         dispositivo = oSAT.altaDispositivos(oDispositivos);
+		
+	//Reparaciones
+		var oReparacion = new Reparacion("Lg 3310", "averia", "estado", "importe", "comentarios");
+		var reparacion = oSAT.altaReparacion(oReparacion);
+		
+		oReparacion = new Reparacion("Sony Z", "averia", "estado", "importe", "comentarios");
+		reparacion = oSAT.altaReparacion(oReparacion);
+	
+	/*//Pago
+		var oPago = new Pago("10€", new Date("2012-03-12"), "estado", "asunto", "22222222a","33333333b");
+		var pago = oSAT.altaPago(oPago);
+	
+		var oPago = new Pago("2", new Date("2012-05-12"), "estado", "asunto", "22222222b","33333333b");
+		var pago = oSAT.altaPago(oPago);
+		
+	//Cobro
+		var oCobro = new Cobro("10€", new Date("2012-03-2"), "estado", "asunto", "22222222a","11111111a");
+		var cobro = oSAT.altaCobro(oCobro);
+	
+		var oCobro = new Cobro("2", new Date("2012-05-1"), "estado", "asunto", "22222222b","11111111b");
+		var cobro = oSAT.altaCobro(oCobro);
+	*/
 }
 
 //quitar el div añadido por free icons
