@@ -5,19 +5,11 @@ function Proveedor(sTipo, sNombre, sCIF) {
     this.bActivo = true;
 }
 
-Proveedor.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sTipo + "</td><td>" + this.sNombre + "</td><td>" + this.sCIF + "</td></tr>";
-}
-
 function Pieza_Repuesto(sTipo, fPrecio, sId) {
     this.sTipo = sTipo;
     this.fPrecio = fPrecio;
     this.sId = sId;
     this.bActivo = true;
-}
-
-Pieza_Repuesto.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sTipo + "</td><td>" + this.fPrecio + "</td><td>" + this.sId + "</td></tr>";
 }
 
 function Reparacion(sModelo, sAveria, sEstado, fImportePresupuestado, sComentarios) {
@@ -29,10 +21,6 @@ function Reparacion(sModelo, sAveria, sEstado, fImportePresupuestado, sComentari
     this.bActivo = true;
 }
 
-Reparacion.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sAveria + "</td><td>" + this.sEstado + "</td><td>" + this.fImportePresupuestado + "</td><td>" + this.sComentarios + "</td></tr>";
-}
-
 function Persona(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
     this.sNombre = sNombre;
     this.sApellidos = sApellidos;
@@ -41,9 +29,6 @@ function Persona(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
     this.sDireccion = sDireccion;
 }
 
-Persona.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
-}
 
 function Personal(sNombre, sApellidos, sDNI, sTelefono, sDireccion, sIBAN, sCargo) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
@@ -55,9 +40,6 @@ function Personal(sNombre, sApellidos, sDNI, sTelefono, sDireccion, sIBAN, sCarg
 Personal.prototype = Object.create(Persona.prototype);
 Personal.prototype.constructor = Personal;
 
-Personal.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td><td>" + this.sIBAN + "</td><td>" + this.sCargo + "</td></tr>";
-}
 
 function Cliente(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
     Persona.call(this, sNombre, sApellidos, sDNI, sTelefono, sDireccion);
@@ -67,10 +49,6 @@ function Cliente(sNombre, sApellidos, sDNI, sTelefono, sDireccion) {
 Cliente.prototype = Object.create(Persona.prototype);
 Cliente.prototype.constructor = Cliente;
 
-Cliente.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sNombre + "</td><td>" + this.sApellidos + "</td><td>" + this.sDNI + "</td><td>" + this.sTelefono + "</td><td>" + this.sDireccion + "</td></tr>";
-}
-
 function Apunte(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado) {
     this.fImporte = fImporte;
     this.fVencimiento = fVencimiento;
@@ -79,9 +57,6 @@ function Apunte(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado) {
     this.sNifEmpleado = sNifEmpleado;
 }
 
-Apunte.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
-}
 
 function Pago(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifProveedor) {
     Apunte.call(this, fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado);
@@ -91,9 +66,6 @@ function Pago(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifProvee
 Pago.prototype = Object.create(Apunte.prototype);
 Pago.prototype.constructor = Pago;
 
-Pago.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
-}
 
 function Cobro(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifCliente) {
     Apunte.call(this, fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado);
@@ -103,21 +75,14 @@ function Cobro(fImporte, fVencimiento, bEstado, sAsunto, sNifEmpleado, sNifClien
 Cobro.prototype = Object.create(Apunte.prototype);
 Cobro.prototype.constructor = Cobro;
 
-Cobro.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.fImporte + "</td><td>" + this.fVencimiento + "</td><td>" + this.bEstado + "</td><td>" + this.sAsunto + "</td></tr>";
-}
 
-function Dispositivo(sMarca, sModelo, dFechaCompra, fEntrada, fSalida) {
+function Dispositivo(sMarca, sModelo, rGarantia, fEntrada, fSalida) {
     this.sMarca = sMarca;
     this.sModelo = sModelo;
-    this.dFechaCompra = dFechaCompra;
+    this.rGarantia = rGarantia;
     this.fEntrada = fEntrada;
     this.fSalida = fSalida;
     this.bActivo = true;
-}
-
-Dispositivo.prototype.toHTMLRow = function () {
-    return "<tr><td>" + this.sMarca + "</td><td>" + this.sModelo + "</td><td>" + this.dFechaCompra + "</td><td>" + this.fEntrada + "</td><td>" + this.fSalida + "</td></tr>";
 }
 
 
@@ -478,6 +443,337 @@ class SAT {
 
     return tabla;
     }
+
+      pintarListadoDispositivos()
+    {
+
+    var tabla   = document.createElement("table");
+    tabla.classList.add("table");
+    tabla.classList.add("table-striped");
+
+    var tblHead = document.createElement("thead");
+
+    var fila = document.createElement("tr");
+
+    var th = document.createElement("th");  
+    var textoTH = document.createTextNode("MARCA");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("MODELO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("GARANTIA");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("FECHA DE ENTRADA");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("FECHA DE SALIDA");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    tblHead.appendChild(fila);
+
+    tabla.appendChild(tblHead);
+
+    var tblBody = document.createElement("tbody");
+
+    for (var i in this._dispositivos)
+    {
+        if (this._dispositivos[i].bActivo==true) 
+        {
+            var fila = document.createElement("tr");
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._dispositivos[i].sMarca);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._dispositivos[i].sModelo);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+
+            if (this._dispositivos[i].rGarantia=="N") {
+             var textoTD = document.createTextNode("NO");
+            }
+            else if (this._dispositivos[i].rGarantia=="S") {
+             var textoTD = document.createTextNode("SI");
+            }
+
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._dispositivos[i].fEntrada.toLocaleDateString('es-ES'));
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._dispositivos[i].fSalida.toLocaleDateString('es-ES'));
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            tblBody.appendChild(fila);
+            tabla.appendChild(tblBody);
+        }
+    }
+}
+
+
+        pintarListadoProveedores()
+    {
+
+    var tabla   = document.createElement("table");
+    tabla.classList.add("table");
+    tabla.classList.add("table-striped");
+
+    var tblHead = document.createElement("thead");
+
+    var fila = document.createElement("tr");
+
+    var th = document.createElement("th");  
+    var textoTH = document.createTextNode("CIF");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("NOMBRE");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("TIPO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+
+    tblHead.appendChild(fila);
+
+    tabla.appendChild(tblHead);
+
+    var tblBody = document.createElement("tbody");
+
+    for (var i in this._proveedores)
+    {
+        if (this._proveedores[i].bActivo==true) 
+        {
+            var fila = document.createElement("tr");
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._proveedores[i].sCIF);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._proveedores[i].sNombre);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._proveedores[i].sTipo);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            tblBody.appendChild(fila);
+            tabla.appendChild(tblBody);
+        }
+    }
+}
+    
+       pintarListadoEmpleados()
+    {
+
+    var tabla   = document.createElement("table");
+    tabla.classList.add("table");
+    tabla.classList.add("table-striped");
+
+    var tblHead = document.createElement("thead");
+
+    var fila = document.createElement("tr");
+
+    var th = document.createElement("th");  
+    var textoTH = document.createTextNode("NIF");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("NOMBRE");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("APELLIDOS");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("DIRECCION");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("TELEFONO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("IBAN (Cuenta bancaria)");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("CARGO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+
+    tblHead.appendChild(fila);
+
+    tabla.appendChild(tblHead);
+
+    var tblBody = document.createElement("tbody");
+
+    for (var i in this._personas)
+    {
+        if (this._personas[i].bActivo==true && this._personas[i] instanceof Personal) 
+        {
+            var fila = document.createElement("tr");
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sDNI);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sNombre);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sApellidos);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sDireccion);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sTelefono);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sIBAN);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sCargo);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            tblBody.appendChild(fila);
+            tabla.appendChild(tblBody);
+        }
+    }
+
+    return tabla;
+}
+
+       pintarListadoReparaciones()
+    {
+
+    var tabla   = document.createElement("table");
+    tabla.classList.add("table");
+    tabla.classList.add("table-striped");
+
+    var tblHead = document.createElement("thead");
+
+    var fila = document.createElement("tr");
+
+    var th = document.createElement("th");  
+    var textoTH = document.createTextNode("MODELO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("AVERIA");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    var th = document.createElement("th");
+    var textoTH = document.createTextNode("ESTADO");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("IMPORTE");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+     var th = document.createElement("th");
+    var textoTH = document.createTextNode("COMENTARIOS");
+    th.appendChild(textoTH);
+    fila.appendChild(th);
+
+    tblHead.appendChild(fila);
+
+    tabla.appendChild(tblHead);
+
+    var tblBody = document.createElement("tbody");
+
+    for (var i in this._reparaciones)
+    {
+        if (this._reparaciones[i].bActivo==true) 
+        {
+            var fila = document.createElement("tr");
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._reparaciones[i].sModelo);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._reparaciones[i].sAveria);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._reparaciones[i].sEstado);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._reparaciones[i].fImportePresupuestado+" €");
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._reparaciones[i].sComentarios);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            tblBody.appendChild(fila);
+            tabla.appendChild(tblBody);
+        }
+    }
+
+    return tabla;
+}
+
 
 
 }

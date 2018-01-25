@@ -30,10 +30,10 @@ document.getElementById("navPago").addEventListener("click", mostrarNuevoPago, f
 document.getElementById("navCobro").addEventListener("click", mostrarNuevoCobro, false);
 
 document.getElementById("navListadoClientes").addEventListener("click", mostrarListadoClientes, false);
-//document.getElementById("navListadoDispositivos").addEventListener("click", mostrarListadoDispositivos, false);
-//document.getElementById("navListadoProveedores").addEventListener("click", mostrarListadoProveedores, false);
-//document.getElementById("navListadoEmpleados").addEventListener("click", mostrarListadoEmpleados, false);
-//document.getElementById("navListadoReparaciones").addEventListener("click", mostrarListadoReparaciones, false);
+document.getElementById("navListadoDispositivos").addEventListener("click", mostrarListadoDispositivos, false);
+document.getElementById("navListadoProveedores").addEventListener("click", mostrarListadoProveedores, false);
+document.getElementById("navListadoEmpleados").addEventListener("click", mostrarListadoEmpleados, false);
+document.getElementById("navListadoReparaciones").addEventListener("click", mostrarListadoReparaciones, false);
 
 function mostrarAltaProveedor(){
 	document.frmAltaProveedor.reset();
@@ -63,6 +63,7 @@ function mostrarAltaProveedor(){
 	document.getElementById('frmBajaEmpleado').style.display = "none";
 	document.getElementById('frmModificarEmpleado').style.display = "none";	
 	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarModificarProveedor(){
@@ -92,6 +93,7 @@ function mostrarModificarProveedor(){
 	document.getElementById('frmModificarEmpleado').style.display = "none";	
 	document.getElementById('frmModificarPieza').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarBajaProveedor(){
@@ -119,6 +121,7 @@ function mostrarBajaProveedor(){
 	document.getElementById('frmModificarPieza').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 
@@ -151,6 +154,7 @@ function mostrarAltaPieza(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarModificarPieza(){
@@ -180,6 +184,7 @@ function mostrarModificarPieza(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarBajaPieza(){
@@ -208,6 +213,7 @@ function mostrarBajaPieza(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 
@@ -241,6 +247,7 @@ function mostrarAltaCliente() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarBajaCliente() {
@@ -268,6 +275,7 @@ function mostrarBajaCliente() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarModificarCliente(){
@@ -299,6 +307,7 @@ function mostrarModificarCliente(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 
@@ -331,6 +340,7 @@ function mostrarAltaDispositivo() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarBajaDispositivo() {
@@ -359,6 +369,7 @@ function mostrarBajaDispositivo() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarModificarDispositivo() {
@@ -389,6 +400,7 @@ function mostrarModificarDispositivo() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 
@@ -422,6 +434,7 @@ function mostrarNuevaReparacion() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
     //Mostrar valores del select múltiple
 
     var dispositivo = document.frmAltaReparacion.repararDispositivo;
@@ -469,6 +482,7 @@ function mostrarModificarReparacion() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
    
    //carga combo reparacion
 	var dispositivo = document.frmModificarReparacion.repararDispositivo;
@@ -511,6 +525,7 @@ function mostrarBajaReparacion(){
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 
 	//carga combo reparacion
    var dispositivo = document.frmBajaReparacion.repararDispositivo;
@@ -562,6 +577,7 @@ function mostrarNuevoEmpleado() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarBajaEmpleado() {
@@ -589,6 +605,7 @@ function mostrarBajaEmpleado() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 function mostrarModificarEmpleado() {
@@ -622,6 +639,7 @@ function mostrarModificarEmpleado() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 }
 
 
@@ -656,6 +674,7 @@ function mostrarNuevoPago() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 	
 	//cargar combo empleado
 	var empleado = document.frmPago.frmPagoSelectEmpleado;
@@ -720,6 +739,7 @@ function mostrarNuevoCobro() {
 	document.getElementById('frmBajaProveedor').style.display = "none";
 	document.getElementById('frmModificarProveedor').style.display = "none";
 	document.getElementById('frmAltaProveedor').style.display = "none";
+	document.getElementById('listados').style.display = "none";
 	
 	//cargar combo empleado
 	var empleado = document.frmCobro.frmCobroSelectEmpleado;
@@ -1410,7 +1430,7 @@ function validarAltaDispositivo(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;
+        var rGarantia = document.frmAltaDispositivo.rbtGarantia.value;
        
         var oDispositivos = new Dispositivo(marca, modelo, rGarantia, new Date(fechaEntrada), new Date(fechaSalida));
         var bEncontrado = oSAT.altaDispositivos(oDispositivos);
@@ -1499,7 +1519,7 @@ function validarModificarDispositivo(){
 		alert(sErrores);
 	else{
 		var sMensaje = "";        
-        var rGarantia = document.frmModificarDispositivo.rbtGarantia.checked;
+        var rGarantia = document.frmModificarDispositivo.rbtGarantia.value;
        
         var oDispositivos = new Dispositivo(marca, modelo, rGarantia, new Date(fechaEntrada), new Date(fechaSalida));
         var bEncontrado = oSAT.modificarDispositivos(oDispositivos);
@@ -2223,17 +2243,194 @@ function validarAltaCobro(){
 	}		
 }
 
+//LISTADOS
 function mostrarListadoClientes()
 {
+	document.getElementById('listados').style.display = "block";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
 
 	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+
 	var listado = oSAT.pintarListadoClientes();
 
-	document.getElementById('jumbo').style.display = "none";
 
 	oCapa.appendChild(listado);
  
 }
+
+function mostrarListadoDispositivos()
+{
+	document.getElementById('listados').style.display = "block";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+
+	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+
+	var listado = oSAT.pintarListadoDispositivos();
+
+
+	oCapa.appendChild(listado);
+ 
+}
+
+function mostrarListadoProveedores()
+{
+	document.getElementById('listados').style.display = "block";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+
+	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+
+	var listado = oSAT.pintarListadoProveedores();
+
+
+	oCapa.appendChild(listado);
+ 
+}
+
+
+function mostrarListadoEmpleados()
+{
+	document.getElementById('listados').style.display = "block";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+
+	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+
+	var listado = oSAT.pintarListadoEmpleados();
+
+
+	oCapa.appendChild(listado);
+ 
+}
+
+function mostrarListadoReparaciones()
+{
+	document.getElementById('listados').style.display = "block";
+	document.getElementById('frmModificarEmpleado').style.display = "none";
+	document.getElementById('frmBajaEmpleado').style.display = "none";
+    document.getElementById('frmAltaEmpleado').style.display = "none";
+    document.getElementById('frmAltaReparacion').style.display = "none";
+    document.getElementById('frmAltaDispositivo').style.display = "none";
+    document.getElementById('frmAltaCliente').style.display = "none";
+    document.getElementById('frmCobro').style.display = "none";
+    document.getElementById('frmPago').style.display = "none";
+    document.getElementById('jumbo').style.display = "none";
+	document.getElementById('frmBajaCliente').style.display = "none";
+	document.getElementById('frmModificarCliente').style.display = "none";
+	document.getElementById('frmBajaDispositivo').style.display = "none";
+	document.getElementById('frmModificarDispositivo').style.display = "none";
+	document.getElementById('frmModificarReparacion').style.display = "none";
+	document.getElementById('frmBajaReparacion').style.display = "none";
+	document.getElementById('frmAltaPieza').style.display = "none";
+	document.getElementById('frmBajaPieza').style.display = "none";
+	document.getElementById('frmModificarPieza').style.display = "none";
+	document.getElementById('frmBajaProveedor').style.display = "none";
+	document.getElementById('frmModificarProveedor').style.display = "none";
+	document.getElementById('frmAltaProveedor').style.display = "none";
+
+	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+
+	var listado = oSAT.pintarListadoReparaciones();
+
+
+	oCapa.appendChild(listado);
+ 
+}
+
+
 
 // eventos botones volver
 document.frmAltaCliente.volver.addEventListener("click", volverAltaCliente, false);
@@ -2382,35 +2579,35 @@ function volverCobro(){
 //DATOS DE PRUEBA
 function cargaDatosDePrueba(){
 	//clientes
-		var oCliente = new Cliente("Pepe","Pepe","11111111a", "999999999", "aaa");
+		var oCliente = new Cliente("Fernando","Berenguer","11111111B", "999999999", "Calle 1");
 		var cliente = oSAT.altaCliente(oCliente);
 
-		oCliente = new Cliente("Paco","Paco","11111111b", "999999999", "aaa");
+		oCliente = new Cliente("Adrian","Giampaslia","22222222B", "666666666", "Calle 2");
 		cliente = oSAT.altaCliente(oCliente);
 
-		oCliente = new Cliente("Jose","Jose","11111111c", "999999999", "aaa");
+		oCliente = new Cliente("Jose Antonio","Campano","33333333C", "666999666", "Calle 3");
 		cliente = oSAT.altaCliente(oCliente);	
 		
 		
 	//Empleados
-		var oEmpleado = new Personal("Antonio","antonio","22222222a", "987654321", "*******", "pringado");
+		var oEmpleado = new Personal("Carlos","Rodriguez","44444444H", "987654321", "Calle JavaScript", "ES0000000000000000000000", "Messi JS");
 		var empleado = oSAT.altaEmpleado(oEmpleado);
 		
-		oEmpleado = new Personal("Margarito","Mariposillo","22222222b", "987654321", "*******", "lerdo");
+		oEmpleado = new Personal("Juan","Vilches","55555555G", "965236124", "Calle PHP", "ES0000000000000000000010", "DJ SESSION");
 		empleado = oSAT.altaEmpleado(oEmpleado);
 		
-		oEmpleado = new Personal("Antonieta","Fat","22222222c", "987654321", "*******", "ZampaBollos");
+		oEmpleado = new Personal("David","De Vega","66666666T", "658745698", "Calle Bootstrap","ES0000000000002000000010", "Profesor vale");
 		empleado = oSAT.altaEmpleado(oEmpleado);
 
 		
 	//Proveedor
-		var oProveedor = new Proveedor("Negro","Zacarias","33333333a");
+		var oProveedor = new Proveedor("Pantallas","ScreenDispatch","B56789098");
 		var proveedor = oSAT.altaProveedor(oProveedor);
 		
-		oProveedor = new Proveedor("Blanco","ErBraian","33333333b");
+		oProveedor = new Proveedor("Botones","Joystick's SL","B12343254");
 		proveedor = oSAT.altaProveedor(oProveedor);
 		
-		oProveedor = new Proveedor("Amarillo","Chen Li","33333333c");
+		oProveedor = new Proveedor("Carcasas","Chen Li","B34234654");
 		proveedor = oSAT.altaProveedor(oProveedor);
 		
 	//Piezas
@@ -2423,24 +2620,21 @@ function cargaDatosDePrueba(){
 		oPieza = new Pieza_Repuesto("Pequeña","Bateria","1113");
 		pieza = oSAT.altaPieza(oPieza);
 	
-	//dispositivos
-		var rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
-        var oDispositivos = new Dispositivo("Sony", "Z", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+	//dispositivos       
+        var oDispositivos = new Dispositivo("Sony", "Z", "S", new Date("2011-03-12"), new Date("2012-01-04"));
         var dispositivo = oSAT.altaDispositivos(oDispositivos);
-		
-		rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
-        oDispositivos = new Dispositivo("Sangsum", "x", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+		      
+        oDispositivos = new Dispositivo("Samsung", "Galaxy S8", "N", new Date("2011-03-12"), new Date("2012-01-04"));
         dispositivo = oSAT.altaDispositivos(oDispositivos);
-		
-		rGarantia = document.frmAltaDispositivo.rbtGarantia.checked;       
-        oDispositivos = new Dispositivo("Lg", "3310", rGarantia, new Date("2011-03-12"), new Date("2012-01-04"));
+		       
+        oDispositivos = new Dispositivo("Lg", "3310", "S", new Date("2011-03-12"), new Date("2012-01-04"));
         dispositivo = oSAT.altaDispositivos(oDispositivos);
 		
 	//Reparaciones
-		var oReparacion = new Reparacion("Lg 3310", "averia", "estado", "importe", "comentarios");
+		var oReparacion = new Reparacion("Lg 3310", "Panalla rota", "Esperando material", "75,50", "Trae marcas de uso en los laterales");
 		var reparacion = oSAT.altaReparacion(oReparacion);
 		
-		oReparacion = new Reparacion("Sony Z", "averia", "estado", "importe", "comentarios");
+		oReparacion = new Reparacion("Sony Z", "Boton desbloqueo no funciona", "Esperando cliente", "60", "Reemplazar la bateria por una nueva");
 		reparacion = oSAT.altaReparacion(oReparacion);
 	
 	/*//Pago
