@@ -2040,15 +2040,10 @@ function validarAltaPago() {
         alert(sErrores);
     else {
         var sMensaje = "";
-
         var oPago = new Pago(importe, fechaEntrada, estado, asunto)
-        var bEncontrado = oSAT.pago(oPago);
-        if (bEncontrado) {
-            sMensaje = "Pago realizado anteriormente";
-        } else {
-            sMensaje = "Pago realizado correctamente";
-            document.frmPago.reset();
-        }
+        oSAT.pago(oPago);
+        sMensaje = "Pago realizado correctamente";
+        document.frmPago.reset();
         alert(sMensaje); //aqui hay que hacer appenchild para mostrar el mensaje
     }
 }
@@ -2128,15 +2123,10 @@ function validarAltaCobro() {
         alert(sErrores);
     else {
         var sMensaje = "";
-
         var oCobro = new Cobro(importe, fechaEntrada, estado, asunto)
-        var bEncontrado = oSAT.cobro(oCobro);
-        if (bEncontrado) {
-            sMensaje = "Cobro realizado anteriormente";
-        } else {
-            sMensaje = "Cobro realizado correctamente";
-            document.frmCobro.reset();
-        }
+        oSAT.cobro(oCobro);
+        sMensaje = "Cobro realizado correctamente";
+        document.frmCobro.reset();
         alert(sMensaje); //aqui hay que hacer appenchild para mostrar el mensaje
     }
 }

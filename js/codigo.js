@@ -376,5 +376,15 @@ class SAT {
         return bEncontrado;
     }
 
+    cobro(oCobro)
+    {
+        this._apuntes.push(oCobro);
+    }
+
+    pago(oPago)
+    {
+        this._apuntes.push(oPago);
+    }
+
 
 }
