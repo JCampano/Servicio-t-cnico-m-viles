@@ -333,7 +333,7 @@ class SAT {
     {
         var bEncontrado = false;
         for (var i in this._reparaciones) {
-            if (this._reparaciones[i].sModelo == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
+            if (this._reparaciones[i].sModelo.split(" ")[this._reparaciones[i].sModelo.split(" ").length-1] == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
                 bEncontrado = true;
             } else {
                 // ya inactivo
@@ -350,11 +350,12 @@ class SAT {
     {
         var bEncontrado = false;
         for (var i in this._reparaciones) {
-            if (this._reparaciones[i].sModelo == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
+            //alert(this._reparaciones[i].sModelo);
+            //alert(oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1]);
+            if (this._reparaciones[i].sModelo.split(" ")[this._reparaciones[i].sModelo.split(" ").length-1] == oReparacion.sModelo.split(" ")[oReparacion.sModelo.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
                 this._reparaciones[i].sAveria = oReparacion.sAveria;
                 this._reparaciones[i].sEstado = oReparacion.sEstado;
                 this._reparaciones[i].fImportePresupuestado = oReparacion.fImportePresupuestado;
-                this._reparaciones[i].sEstado = oReparacion.sEstado;
                 this._reparaciones[i].sComentarios = oReparacion.sComentarios;
                 bEncontrado = true;
             }
@@ -367,7 +368,7 @@ class SAT {
          var bEncontrado = false;
 
         for (var i in this._reparaciones) {
-            if (this._reparaciones[i].sModelo == oReparacion.split(" ")[oReparacion.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
+            if (this._reparaciones[i].sModelo.split(" ")[this._reparaciones[i].sModelo.split(" ").length-1] == oReparacion.split(" ")[oReparacion.split(" ").length-1] && this._reparaciones[i].bActivo == true) {
                 bEncontrado = true;
                 this._reparaciones[i].bActivo=false;
             }
