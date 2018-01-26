@@ -2631,94 +2631,47 @@ function cargarDatosXML(){
 		var ivan = emple.getElementsByTagName("empleado")[i].getElementsByTagName("ivan")[0].textContent;
 		var cargo = emple.getElementsByTagName("empleado")[i].getElementsByTagName("cargo")[0].textContent;
 
-        var oEmpleado = new Empleado(nombre,apellidos,nif,telf,direccion,ivan,cargo);
+        var oEmpleado = new Personal(nombre,apellidos,nif,telf,direccion,ivan,cargo);
 		var empleado = oSAT.altaEmpleado(oEmpleado);
     }
 	
 	
-	var proveedor = proveedorXml[0];
-    for(var i = 0; i < proveedor.getElementsByTagName("proveedor").length; i++){
-        var nombre = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
-        var tipo = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
-		var cif = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
+	var prove = proveedorXml[0];
+    for(var i = 0; i < prove.getElementsByTagName("proveedor").length; i++){
+        var nombre = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
+        var tipo = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
+		var cif = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
 		
         var oProveedor = new Proveedor(tipo,nombre,cif);
 		var proveedor = oSAT.altaProveedor(oProveedor);
     }
 	
 	
-	var piezas = piezaXml[0];
-    for(var i = 0; i < piezas.getElementsByTagName("pieza").length; i++){
-        var precio = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("precio")[0].textContent;
-        var tipo = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("tipò")[0].textContent;
-		var id = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("id")[0].textContent;
-		
-        var oPieza = new pieza(tipo,precio,id);
-		var pieza = oSAT.altaPieza(oPieza);
-    }
 	
-	
-	var dispositivo = dispositivoXml[0];
-    for(var i = 0; i < dispositivo.getElementsByTagName("dispositivo").length; i++){
-        var marca = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("marca")[0].textContent;
-        var modelo = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("modelo")[0].textContent;
-		var garantia = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
-		var entrada = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
-		var salida = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
+	var disp = dispositivoXml[0];
+    for(var i = 0; i < disp.getElementsByTagName("dispositivo").length; i++){
+        var marca = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("marca")[0].textContent;
+        var modelo = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("modelo")[0].textContent;
+		var garantia = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
+		var entrada = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
+		var salida = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
 		
         oDispositivos = new Dispositivo(marca,modelo,garantia, new Date(entrada), new Date(salida));
         dispositivo = oSAT.altaDispositivos(oDispositivos);
     }
 	
+
 	
-	var dispositivo = dispositivoXml[0];
-    for(var i = 0; i < dispositivo.getElementsByTagName("dispositivo").length; i++){
-        var marca = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("marca")[0].textContent;
-        var modelo = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("modelo")[0].textContent;
-		var garantia = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
-		var entrada = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
-		var salida = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
-		
-        oDispositivos = new Dispositivo(marca,modelo,garantia, new Date(entrada), new Date(salida));
-        dispositivo = oSAT.altaDispositivos(oDispositivos);
-    }
-	
-	var reparaciones = reparacionesXml[0];
-	for(var i = 0; i < reparaciones.getElementsByTagName("reparacion").length; i++){
-		var modelo = reparaciones.getElementsByTagName("reparacion")[i].getElementsByTagName("modelo")[0].textContent;
-		var averia = reparaciones.getElementsByTagName("reparacion")[i].getElementsByTagName("averia")[0].textContent;
-		var estado = reparaciones.getElementsByTagName("reparacion")[i].getElementsByTagName("estado")[0].textContent;
-		var importePresupuestado = reparaciones.getElementsByTagName("reparacion")[i].getElementsByTagName("importePresupuestado")[0].textContent;
-		var comentario = reparaciones.getElementsByTagName("reparacion")[i].getElementsByTagName("comentario")[0].textContent;
+	var repara = reparacionesXml[0];
+	for(var i = 0; i < repara.getElementsByTagName("reparacion").length; i++){
+		var modelo = repara.getElementsByTagName("reparacion")[i].getElementsByTagName("modelo")[0].textContent;
+		var averia = repara.getElementsByTagName("reparacion")[i].getElementsByTagName("averia")[0].textContent;
+		var estado = repara.getElementsByTagName("reparacion")[i].getElementsByTagName("estado")[0].textContent;
+		var importePresupuestado = repara.getElementsByTagName("reparacion")[i].getElementsByTagName("importePresupuestado")[0].textContent;
+		var comentario = repara.getElementsByTagName("reparacion")[i].getElementsByTagName("comentario")[0].textContent;
 			
-		oReparaciones = new Reparaciones(modelo,averia,estado,importePresupuestado, comentario);
+		oReparaciones = new Reparacion(modelo,averia,estado,importePresupuestado, comentario);
 		reparaciones = oSAT.altaReparacion(oReparaciones);
-	}
-	
-	var pagos = pagosXml[0];
-	for(var i = 0; i < pagos.getElementsByTagName("pago").length; i++){
-		var importe = pagos.getElementsByTagName("pago")[i].getElementsByTagName("importe")[0].textContent;
-		var vencimiento = pagos.getElementsByTagName("pago")[i].getElementsByTagName("venimiento")[0].textContent;
-		var estado = pagos.getElementsByTagName("pago")[i].getElementsByTagName("estado")[0].textContent;
-		var asunto = pagos.getElementsByTagName("pago")[i].getElementsByTagName("asunto")[0].textContent;
-		var nifEmpleado = pagos.getElementsByTagName("pago")[i].getElementsByTagName("nifEmpleado")[0].textContent;
-		var nifProveedor = pagos.getElementsByTagName("pago")[i].getElementsByTagName("nifProveedor")[0].textContent;
-			
-		oPago = new Pago(importe,vencimiento,estado,asunto, nifEmpleado,nifProveedor);
-		pago = oSAT.altaPago(oPago);
-	}
-	
-	var cobro = cobrosXml[0];
-	for(var i = 0; i < cobro.getElementsByTagName("cobro").length; i++){
-		var importe = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("importe")[0].textContent;
-		var vencimiento = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("venimiento")[0].textContent;
-		var estado = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("estado")[0].textContent;
-		var asunto = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("asunto")[0].textContent;
-		var nifEmpleado = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("nifEmpleado")[0].textContent;
-		var nifCliente = cobro.getElementsByTagName("cobro")[i].getElementsByTagName("nifCliente")[0].textContent;
-			
-		oCobro = new Cobro(importe,vencimiento,estado,asunto, nifEmpleado,nifCliente);
-		cobro = oSAT.altaCobro(oCobro);
 	}
 	
 }
@@ -2801,8 +2754,3 @@ function cargaDatosDePrueba(){
 		var cobro = oSAT.altaCobro(oCobro);
 	
 }*/
-
-//quitar el div añadido por free icons
-var a =document.getElementsByTagName("div");
-var quitar = a.length - 1;
-a[quitar].style.display = "none";
