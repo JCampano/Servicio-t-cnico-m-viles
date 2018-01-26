@@ -2683,6 +2683,9 @@ function cargarDatosXML(){
         var nombre = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
         var tipo = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
 		var cif = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
+<<<<<<< HEAD
+>>>>>>> dd3032269570ab87457c3357a771185920b79c29
+=======
 >>>>>>> dd3032269570ab87457c3357a771185920b79c29
 		
         var oProveedor = new Proveedor(tipo,nombre,cif);

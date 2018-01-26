@@ -363,9 +363,9 @@ class SAT {
         return bEncontrado;
     }
 
-    pintarListadoClientes()
+    pintarListadoClientes(nombre)
     {
-
+	var nombre = nombre;
     var tabla   = document.createElement("table");
     tabla.classList.add("table");
     tabla.classList.add("table-striped");
@@ -407,7 +407,7 @@ class SAT {
 
     for (var i in this._personas)
     {
-        if (this._personas[i].bActivo==true && this._personas[i] instanceof Cliente) 
+        if (this._personas[i].bActivo==true && this._personas[i] instanceof Cliente && nombre =="Todos") 
         {
             var fila = document.createElement("tr");
 
@@ -439,6 +439,38 @@ class SAT {
             tblBody.appendChild(fila);
             tabla.appendChild(tblBody);
         }
+		else if(this._personas[i].bActivo==true && this._personas[i] instanceof Cliente && nombre ==this._personas[i].sNombre){
+			
+			var fila = document.createElement("tr");
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sDNI);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sNombre);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sApellidos);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sDireccion);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            var td = document.createElement("td");
+            var textoTD = document.createTextNode(this._personas[i].sTelefono);
+            td.appendChild(textoTD);
+            fila.appendChild(td);
+
+            tblBody.appendChild(fila);
+            tabla.appendChild(tblBody);
+		}
     }
 
     return tabla;
@@ -486,7 +518,7 @@ class SAT {
     var tblBody = document.createElement("tbody");
 
 	
-	if(garantia=="S" && garantia=="N"){
+	if(garantia=="S" || garantia=="N"){
 		for (var i in this._dispositivos){
 			if (this._dispositivos[i].bActivo==true && this._dispositivos[i].rGarantia==garantia){
 				var fila = document.createElement("tr");
