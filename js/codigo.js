@@ -528,6 +528,7 @@ class SAT {
             tabla.appendChild(tblBody);
         }
     }
+	return tabla;
 }
 
 
@@ -589,6 +590,7 @@ class SAT {
             tabla.appendChild(tblBody);
         }
     }
+	return tabla;
 }
     
        pintarListadoEmpleados()
@@ -772,52 +774,5 @@ class SAT {
     }
 
     return tabla;
-}
-
-function loadXMLDoc(filename){
-    var xhttp;
-
-    if (window.XMLHttpRequest){
-        xhttp = new XMLHttpRequest();
-    }
-    else{
-        // code for IE5 and IE6
-        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhttp.open("GET",filename,false);
-
-    xhttp.send();
-
-    return xhttp.responseXML;
-}
-
-SAT.prototype.cargarDatosXML = function(){
-    var oXml = loadXMLDoc("datos.xml");
-
-	var clienteXml = oXml.getElementsByTagName("Clientes");
-    var empleadoXml = oXml.getElementsByTagName("Empleados");
-    var proveedorXml = oXml.getElementsByTagName("Proveedor");
-    var piezaXml = oXml.getElementsByTagName("Piezas");
-	var dispositivoXml = oXml.getElementsByTagName("Dispositivos");
-	var reparacionesXml = oXml.getElementsByTagName("Reparaciones");
-	var pagosXml = oXml.getElementsByTagName("Pagos");
-	var cobrosXml = oXml.getElementsByTagName("Cobros");
-
-    var cli = clienteXml[0];
-    for(var i = 0; i < cli.getElementsByTagName("cliente").length; i++){
-        var nombre = cli.getElementsByTagName("cliente")[i].getElementsByTagName("nombre")[0].textContent;
-        var apellidos = cli.getElementsByTagName("cliente")[i].getElementsByTagName("apellidos")[0].textContent;
-		var nif = cli.getElementsByTagName("cliente")[i].getElementsByTagName("nif")[0].textContent;
-		var telf = cli.getElementsByTagName("cliente")[i].getElementsByTagName("telefono")[0].textContent;
-		var direccion = cli.getElementsByTagName("cliente")[i].getElementsByTagName("direccion")[0].textContent;
-
-        this._personas.push(new Cliente(
-            nombre,
-            apellidos,
-			nif,
-			telf,
-			direccion
-            )
-        );
-    }
+	}
 }
