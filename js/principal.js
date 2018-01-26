@@ -1,5 +1,6 @@
 var oSAT = new SAT();
-cargaDatosDePrueba();
+// Cargar datos desde XML
+oSAT.cargarDatosXML();
 //eventos botones menu
 document.getElementById("navAltaCliente").addEventListener("click", mostrarAltaCliente, false);
 document.getElementById("navBajaCliente").addEventListener("click", mostrarBajaCliente, false);
@@ -2575,7 +2576,7 @@ function volverCobro(){
 	document.getElementById('jumbo').style.display = "block";
 }
 
-
+/*
 //DATOS DE PRUEBA
 function cargaDatosDePrueba(){
 	//clientes
@@ -2637,7 +2638,7 @@ function cargaDatosDePrueba(){
 		oReparacion = new Reparacion("Sony Z", "Boton desbloqueo no funciona", "Esperando cliente", "60", "Reemplazar la bateria por una nueva");
 		reparacion = oSAT.altaReparacion(oReparacion);
 	
-	/*//Pago
+	//Pago
 		var oPago = new Pago("10€", new Date("2012-03-12"), "estado", "asunto", "22222222a","33333333b");
 		var pago = oSAT.altaPago(oPago);
 	
