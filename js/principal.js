@@ -1,6 +1,6 @@
 var oSAT = new SAT();
 // Cargar datos desde XML
-cargarDatosXML();
+//cargarDatosXML();
 //eventos botones menu
 
 document.getElementById("menu").addEventListener("click", mostrarInicio, false);
@@ -2278,7 +2278,9 @@ function mostrarListadoClientes()
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
 	
-	var listado = oSAT.pintarListadoClientes();
+	var nombre = prompt('Introduzca un nombre para filtrar el listado, escriba "Todos" para un listado sin filtro', "");
+	nombre = nombre.trim();
+	var listado = oSAT.pintarListadoClientes(nombre);
 
 
 	oCapa.appendChild(listado);
@@ -2426,7 +2428,7 @@ function mostrarListadoReparaciones()
 
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
-
+	
 	var listado = oSAT.pintarListadoReparaciones();
 
 
@@ -2669,15 +2671,24 @@ function cargarDatosXML(){
     }
 	
 	
+<<<<<<< HEAD
 	var prove = proveedorXml[0];
     for(var i = 0; i < prove.getElementsByTagName("proveedor").length; i++){
         var nombre = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
         var tipo = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
 		var cif = prove.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
+=======
+	var proveedor = proveedorXml[0];
+    for(var i = 0; i < proveedor.getElementsByTagName("proveedor").length; i++){
+        var nombre = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
+        var tipo = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
+		var cif = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
+>>>>>>> dd3032269570ab87457c3357a771185920b79c29
 		
         var oProveedor = new Proveedor(tipo,nombre,cif);
-		var proveedor = oSAT.altaProveedor(oProveedor);
+		var pro = oSAT.altaProveedor(oProveedor);
     }
+<<<<<<< HEAD
 
 	var disp = dispositivoXml[0];
     for(var i = 0; i < disp.getElementsByTagName("dispositivo").length; i++){
@@ -2686,6 +2697,41 @@ function cargarDatosXML(){
 		var garantia = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
 		var entrada = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
 		var salida = disp.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
+=======
+	
+	
+	var piezas = piezaXml[0];
+    for(var i = 0; i < piezas.getElementsByTagName("pieza").length; i++){
+        var precio = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("precio")[0].textContent;
+        var tipo = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("tipò")[0].textContent;
+		var id = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("id")[0].textContent;
+		
+        var oPieza = new pieza(tipo,precio,id);
+		var p = oSAT.altaPieza(oPieza);
+    }
+	
+	
+	var dispositivo = dispositivoXml[0];
+    for(var i = 0; i < dispositivo.getElementsByTagName("dispositivo").length; i++){
+        var marca = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("marca")[0].textContent;
+        var modelo = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("modelo")[0].textContent;
+		var garantia = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
+		var entrada = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
+		var salida = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
+		
+        oDispositivos = new Dispositivo(marca,modelo,garantia, new Date(entrada), new Date(salida));
+        dispositivo = oSAT.altaDispositivos(oDispositivos);
+    }
+	
+	
+	var dispositivo = dispositivoXml[0];
+    for(var i = 0; i < dispositivo.getElementsByTagName("dispositivo").length; i++){
+        var marca = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("marca")[0].textContent;
+        var modelo = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("modelo")[0].textContent;
+		var garantia = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("garantia")[0].textContent;
+		var entrada = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("entrada")[0].textContent;
+		var salida = dispositivo.getElementsByTagName("dispositivo")[i].getElementsByTagName("salida")[0].textContent;
+>>>>>>> dd3032269570ab87457c3357a771185920b79c29
 		
         oDispositivos = new Dispositivo(marca,modelo,garantia, new Date(entrada), new Date(salida));
         dispositivo = oSAT.altaDispositivos(oDispositivos);
