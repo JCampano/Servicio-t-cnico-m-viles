@@ -2,6 +2,9 @@ var oSAT = new SAT();
 // Cargar datos desde XML
 cargarDatosXML();
 //eventos botones menu
+
+document.getElementById("menu").addEventListener("click", mostrarInicio, false);
+
 document.getElementById("navAltaCliente").addEventListener("click", mostrarAltaCliente, false);
 document.getElementById("navBajaCliente").addEventListener("click", mostrarBajaCliente, false);
 document.getElementById("navModificarCliente").addEventListener("click", mostrarModificarCliente, false);
@@ -2274,7 +2277,7 @@ function mostrarListadoClientes()
 
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
-
+	
 	var listado = oSAT.pintarListadoClientes();
 
 
@@ -2311,10 +2314,10 @@ function mostrarListadoDispositivos()
 
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
-
-	var listado = oSAT.pintarListadoDispositivos();
-
-
+	
+	var garantia = prompt("¿Tiene garantia?", "Escriba S o N,introduzca cualquier otro caracter para un listado normal");
+	garantia = garantia.trim();
+	var listado = oSAT.pintarListadoDispositivos(garantia);
 	oCapa.appendChild(listado);
  
 }
@@ -2464,6 +2467,36 @@ document.frmModificarEmpleado.volver.addEventListener("click", volverModificarEm
 
 document.frmPago.volver.addEventListener("click", volverPago, false);
 document.frmCobro.volver.addEventListener("click", volverCobro, false);
+
+function mostrarInicio(){
+	var oCapa = document.getElementById("listados");
+
+	if (oCapa.firstChild) 
+		oCapa.removeChild(oCapa.lastChild);
+	
+	document.frmAltaCliente.style.display = "none";
+	document.frmBajaCliente.style.display = "none";
+	document.frmModificarCliente.style.display = "none";
+	document.frmAltaProveedor.style.display = "none";
+	document.frmBajaProveedor.style.display = "none";
+	document.frmModificarProveedor.style.display = "none";
+	document.frmAltaPieza.style.display = "none";
+	document.frmBajaPieza.style.display = "none";
+	document.frmModificarPieza.style.display = "none";
+	document.frmAltaDispositivo.style.display = "none";
+	document.frmBajaDispositivo.style.display = "none";
+	document.frmModificarDispositivo.style.display = "none";
+	document.frmAltaReparacion.style.display = "none";
+	document.frmBajaReparacion.style.display = "none";
+	document.frmModificarReparacion.style.display = "none";
+	document.frmAltaEmpleado.style.display = "none";
+	document.frmBajaEmpleado.style.display = "none";
+	document.frmModificarEmpleado.style.display = "none";
+	document.frmPago.style.display = "none";
+	document.frmCobro.style.display = "none";
+	
+	document.getElementById('jumbo').style.display = "block";
+}
 
 function volverAltaCliente(){
 	document.frmAltaCliente.style.display = "none";
@@ -2631,7 +2664,7 @@ function cargarDatosXML(){
 		var ivan = emple.getElementsByTagName("empleado")[i].getElementsByTagName("ivan")[0].textContent;
 		var cargo = emple.getElementsByTagName("empleado")[i].getElementsByTagName("cargo")[0].textContent;
 
-        var oEmpleado = new Empleado(nombre,apellidos,nif,telf,direccion,ivan,cargo);
+        var oEmpleado = new Personal(nombre,apellidos,nif,telf,direccion,ivan,cargo);
 		var empleado = oSAT.altaEmpleado(oEmpleado);
     }
 	
@@ -2720,7 +2753,7 @@ function cargarDatosXML(){
 		oCobro = new Cobro(importe,vencimiento,estado,asunto, nifEmpleado,nifCliente);
 		cobro = oSAT.altaCobro(oCobro);
 	}
-	
+
 }
 
 

@@ -444,9 +444,8 @@ class SAT {
     return tabla;
     }
 
-      pintarListadoDispositivos()
-    {
-
+      pintarListadoDispositivos(garantia)
+    {	
     var tabla   = document.createElement("table");
     tabla.classList.add("table");
     tabla.classList.add("table-striped");
@@ -486,47 +485,90 @@ class SAT {
 
     var tblBody = document.createElement("tbody");
 
-    for (var i in this._dispositivos)
-    {
-        if (this._dispositivos[i].bActivo==true) 
-        {
-            var fila = document.createElement("tr");
+	
+	if(garantia=="S" && garantia=="N"){
+		for (var i in this._dispositivos){
+			if (this._dispositivos[i].bActivo==true && this._dispositivos[i].rGarantia==garantia){
+				var fila = document.createElement("tr");
 
-            var td = document.createElement("td");
-            var textoTD = document.createTextNode(this._dispositivos[i].sMarca);
-            td.appendChild(textoTD);
-            fila.appendChild(td);
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].sMarca);
+				td.appendChild(textoTD);
+				fila.appendChild(td);
 
-            var td = document.createElement("td");
-            var textoTD = document.createTextNode(this._dispositivos[i].sModelo);
-            td.appendChild(textoTD);
-            fila.appendChild(td);
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].sModelo);
+				td.appendChild(textoTD);
+				fila.appendChild(td);
 
-            var td = document.createElement("td");
+				var td = document.createElement("td");
 
-            if (this._dispositivos[i].rGarantia=="N") {
-             var textoTD = document.createTextNode("NO");
-            }
-            else if (this._dispositivos[i].rGarantia=="S") {
-             var textoTD = document.createTextNode("SI");
-            }
+				if (this._dispositivos[i].rGarantia=="N") {
+					var textoTD = document.createTextNode("NO");
+				}
+				else if (this._dispositivos[i].rGarantia=="S") {
+					var textoTD = document.createTextNode("SI");
+				}
 
-            td.appendChild(textoTD);
-            fila.appendChild(td);
+				td.appendChild(textoTD);
+				fila.appendChild(td);
 
-            var td = document.createElement("td");
-            var textoTD = document.createTextNode(this._dispositivos[i].fEntrada.toLocaleDateString('es-ES'));
-            td.appendChild(textoTD);
-            fila.appendChild(td);
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].fEntrada.toLocaleDateString('es-ES'));
+				td.appendChild(textoTD);
+				fila.appendChild(td);
 
-            var td = document.createElement("td");
-            var textoTD = document.createTextNode(this._dispositivos[i].fSalida.toLocaleDateString('es-ES'));
-            td.appendChild(textoTD);
-            fila.appendChild(td);
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].fSalida.toLocaleDateString('es-ES'));
+				td.appendChild(textoTD);
+				fila.appendChild(td);
 
-            tblBody.appendChild(fila);
-            tabla.appendChild(tblBody);
-        }
+				tblBody.appendChild(fila);
+				tabla.appendChild(tblBody);
+			}
+		}
+	}
+	else{		
+		for (var i in this._dispositivos){
+			if (this._dispositivos[i].bActivo==true){
+				var fila = document.createElement("tr");
+
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].sMarca);
+				td.appendChild(textoTD);
+				fila.appendChild(td);
+
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].sModelo);
+				td.appendChild(textoTD);
+				fila.appendChild(td);
+
+				var td = document.createElement("td");
+
+				if (this._dispositivos[i].rGarantia=="N") {
+					var textoTD = document.createTextNode("NO");
+				}
+				else if (this._dispositivos[i].rGarantia=="S") {
+					var textoTD = document.createTextNode("SI");
+				}
+
+				td.appendChild(textoTD);
+				fila.appendChild(td);
+
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].fEntrada.toLocaleDateString('es-ES'));
+				td.appendChild(textoTD);
+				fila.appendChild(td);
+
+				var td = document.createElement("td");
+				var textoTD = document.createTextNode(this._dispositivos[i].fSalida.toLocaleDateString('es-ES'));
+				td.appendChild(textoTD);
+				fila.appendChild(td);
+
+				tblBody.appendChild(fila);
+				tabla.appendChild(tblBody);			
+			}
+		}
     }
 	return tabla;
 }
