@@ -1,6 +1,6 @@
 var oSAT = new SAT();
 // Cargar datos desde XML
-cargarDatosXML();
+//cargarDatosXML();
 //eventos botones menu
 
 document.getElementById("menu").addEventListener("click", mostrarInicio, false);
@@ -2278,7 +2278,9 @@ function mostrarListadoClientes()
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
 	
-	var listado = oSAT.pintarListadoClientes();
+	var nombre = prompt('Introduzca un nombre para filtrar el listado, escriba "Todos" para un listado sin filtro', "");
+	nombre = nombre.trim();
+	var listado = oSAT.pintarListadoClientes(nombre);
 
 
 	oCapa.appendChild(listado);
@@ -2426,7 +2428,7 @@ function mostrarListadoReparaciones()
 
 	if (oCapa.firstChild) 
 		oCapa.removeChild(oCapa.lastChild);
-
+	
 	var listado = oSAT.pintarListadoReparaciones();
 
 
@@ -2671,12 +2673,12 @@ function cargarDatosXML(){
 	
 	var proveedor = proveedorXml[0];
     for(var i = 0; i < proveedor.getElementsByTagName("proveedor").length; i++){
-        var nombre = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
-        var tipo = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
-		var cif = emple.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
+        var nombre = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("nombre")[0].textContent;
+        var tipo = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("tipo")[0].textContent;
+		var cif = proveedor.getElementsByTagName("proveedor")[i].getElementsByTagName("cif")[0].textContent;
 		
         var oProveedor = new Proveedor(tipo,nombre,cif);
-		var proveedor = oSAT.altaProveedor(oProveedor);
+		var pro = oSAT.altaProveedor(oProveedor);
     }
 	
 	
@@ -2687,7 +2689,7 @@ function cargarDatosXML(){
 		var id = piezas.getElementsByTagName("pieza")[i].getElementsByTagName("id")[0].textContent;
 		
         var oPieza = new pieza(tipo,precio,id);
-		var pieza = oSAT.altaPieza(oPieza);
+		var p = oSAT.altaPieza(oPieza);
     }
 	
 	
