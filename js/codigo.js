@@ -407,7 +407,7 @@ class SAT {
 
     for (var i in this._personas)
     {
-        if (this._personas[i].bActivo==true && this._personas[i] instanceof Cliente && nombre =="Todos") 
+        if (this._personas[i].bActivo==true && this._personas[i] instanceof Cliente && nombre =="") 
         {
             var fila = document.createElement("tr");
 
