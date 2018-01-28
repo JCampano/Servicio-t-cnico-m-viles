@@ -104,9 +104,10 @@ class SAT {
         for (var i in this._personas) {
             if (oCliente.sDNI == this._personas[i].sDNI && this._personas[i].bActivo == true && this._personas[i] instanceof Cliente) {
                 esta = true;
-            } else {
+            } else if (this._personas[i].bActivo == false) {
                 //el cliente existe pero esta inactivo
-                //cad="El cliente ya existe, pero esta inactivo";
+                this._personas[i].bActivo = true;
+                esta = false;
             }
         }
         if (!esta) {
@@ -151,9 +152,10 @@ class SAT {
         for (var i in this._dispositivos) {
             if (this._dispositivos[i].sMarca == oDispositivos.sMarca && this._dispositivos[i].sModelo == oDispositivos.sModelo && this._dispositivos[i].bActivo == true) {
                 bEncontrado = true;
-            } else {
+            } else if (this._dispositivos[i].bActivo == false){
                 //el dispositivo existe pero esta inactivo (eliminado)
-                // cad="El dispositivo ya exite, pero esta inactivo";
+                this._dispositivos[i].bActivo = true;
+                bEncontrado = false;
             }
         }
         if (!bEncontrado) {
@@ -201,9 +203,10 @@ class SAT {
         for (var i in this._piezas) {
             if (oPieza.id == this._piezas[i].id && this._piezas[i].bActivo == true) {
                 esta = true;
-            } else {
+            } else if (this._piezas[i].bActivo == false){
                 //la pieza existe pero esta inactiva (eliminada)
-                //cad="La pieza ya exite, pero esta inactiva";
+                this._piezas[i].bActivo = true;
+                esta = false;
             }
         }
         if (!esta) {
@@ -245,9 +248,10 @@ class SAT {
         for (var i in this._proveedores) {
             if (this._proveedores[i].sCIF == oProveedor.sCIF && this._proveedores[i].bActivo == true) {
                 bEncontrado = true;
-            } else {
+            } else if (this._proveedores[i].bActivo == false){
                 //el proveedor existe pero esta inactivo (eliminado)
-                // cad="El proveedor ya exite, pero esta inactivo";
+               this._proveedores[i].bActivo = true;
+               bEncontrado = false;
             }
         }
         if (!bEncontrado) {
@@ -291,9 +295,10 @@ class SAT {
         for (var i in this._personas) {
             if (oEmpleado.sDNI == this._personas[i].sDNI && this._personas[i].bActivo == true && this._personas[i] instanceof Personal) {
                 esta = true;
-            } else {
+            } else if(this._personas[i].bActivo == false){
                 //el cliente existe pero esta inactivo
-                //cad="El cliente ya existe, pero esta inactivo";
+                this._personas[i].bActivo = false;
+                esta = false;
             }
         }
         if (!esta) {
@@ -339,9 +344,10 @@ class SAT {
         for (var i in this._reparaciones) {
             if (this._reparaciones[i].sModelo == oReparacion.sModelo && this._reparaciones[i].bActivo == true) {
                 bEncontrado = true;
-            } else {
+            } else if (this._reparaciones[i].bActivo == false){
                 // ya inactivo
-                //cad=" dado de baja anteriormente";
+                this._reparaciones[i].bActivo = true;
+                bEncontrado = false;
             }
         }
 		if (!bEncontrado) {
